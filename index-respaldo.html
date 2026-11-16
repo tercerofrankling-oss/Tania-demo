@@ -1,0 +1,452 @@
+cat > index.html <<'EOF'
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Para Tania ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@400;600&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    min-height:100vh;
+    font-family:Poppins,sans-serif;
+    color:white;
+    background:linear-gradient(145deg,#100d20,#38204d,#75427f);
+    overflow-x:hidden;
+}
+
+#fondo{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+}
+
+.particula{
+    position:absolute;
+    bottom:-50px;
+    animation:subir linear forwards;
+}
+
+@keyframes subir{
+    0%{transform:translateY(0);opacity:0}
+    20%{opacity:.8}
+    100%{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+
+.pantalla{
+    position:relative;
+    z-index:2;
+    min-height:100vh;
+    padding:30px 18px;
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.pantalla.activa{
+    display:flex;
+    animation:entrada 1s ease;
+}
+
+@keyframes entrada{
+    from{opacity:0;transform:translateY(25px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+h1{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(48px,12vw,78px);
+    color:#ffd8ec;
+    text-shadow:0 0 20px #e9a4ff;
+}
+
+h2{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(23px,6vw,34px);
+    margin:15px 0;
+}
+
+.texto{
+    max-width:440px;
+    font-size:14px;
+    line-height:1.9;
+    color:#f7eafa;
+}
+
+.flor{
+    font-size:38px;
+    margin:15px;
+    animation:flotar 3s infinite ease-in-out;
+}
+
+@keyframes flotar{
+    50%{transform:translateY(-10px)}
+}
+
+.tarjeta{
+    width:100%;
+    max-width:440px;
+    padding:25px 20px;
+    margin-top:15px;
+    border:1px solid #ffffff55;
+    border-radius:25px;
+    background:#ffffff13;
+    backdrop-filter:blur(12px);
+    box-shadow:0 15px 45px #0005;
+}
+
+.boton{
+    margin-top:23px;
+    padding:13px 25px;
+    border:1px solid #ffffff66;
+    border-radius:40px;
+    color:white;
+    background:linear-gradient(45deg,#a34ac4,#e65d9d);
+    box-shadow:0 0 22px #d66aff66;
+    font-weight:600;
+}
+
+.boton:active{transform:scale(.95)}
+
+/* LADYBUG REALISTA */
+
+.marco-ladybug{
+    width:min(94vw,430px);
+    height:min(68vh,590px);
+    min-height:360px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    margin:12px auto;
+}
+
+.ladybug{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    filter:drop-shadow(0 15px 25px #0008);
+    animation:entradaLadybug 1.7s cubic-bezier(.2,.8,.2,1) both,
+              flotarLadybug 3.5s 1.7s ease-in-out infinite;
+}
+
+@keyframes entradaLadybug{
+    0%{opacity:0;transform:translateY(100px) scale(.65)}
+    70%{opacity:1;transform:translateY(-12px) scale(1.04)}
+    100%{opacity:1;transform:translateY(0) scale(1)}
+}
+
+@keyframes flotarLadybug{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-12px)}
+}
+
+.destello{
+    position:absolute;
+    font-size:25px;
+    animation:brillo 2s infinite alternate;
+    pointer-events:none;
+}
+
+.d1{top:12%;left:5%}
+.d2{top:25%;right:4%;animation-delay:.5s}
+.d3{bottom:20%;left:8%;animation-delay:1s}
+.d4{bottom:12%;right:7%;animation-delay:.7s}
+
+@keyframes brillo{
+    from{opacity:.2;transform:scale(.7) rotate(0)}
+    to{opacity:1;transform:scale(1.3) rotate(35deg)}
+}
+
+.carta{
+    text-align:left;
+    font-family:'Playfair Display',serif;
+    font-size:16px;
+    line-height:2;
+    color:#fff0fa;
+}
+
+.firma{
+    text-align:right;
+    font-family:'Great Vibes',cursive;
+    font-size:36px;
+    color:#ffc5e6;
+    margin-top:20px;
+}
+
+.foto{
+    width:min(78vw,300px);
+    max-height:380px;
+    object-fit:cover;
+    border-radius:22px;
+    border:4px solid #f5d8ff;
+    box-shadow:0 0 30px #d58cff77;
+    margin:20px auto;
+}
+
+.separador{
+    color:#ffb9dd;
+    letter-spacing:8px;
+    margin:20px;
+}
+
+.pie{
+    color:#ffffff80;
+    font-size:10px;
+    margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="fondo"></div>
+
+<!-- BIENVENIDA -->
+
+<section class="pantalla activa" id="bienvenida">
+
+    <div class="flor">🌷 ✨ 🌷</div>
+
+    <h1>Para Tania</h1>
+
+    <h2>Una sorpresa especial ❤️</h2>
+
+    <p class="texto">
+        Hay personas que hacen que los días sean más bonitos.
+        <br><br>
+        Y hoy quiero dedicarle algo diferente,
+        algo preparado especialmente para usted.
+        <br><br>
+        ¿Está lista para descubrirlo?
+    </p>
+
+    <button class="boton" onclick="mostrar('ladybug')">
+        Abrir mi sorpresa 💌
+    </button>
+
+    <div class="pie">Hecho con cariño ❤️</div>
+
+</section>
+
+<!-- LADYBUG -->
+
+<section class="pantalla" id="ladybug">
+
+    <h1>¡Ladybug llegó!</h1>
+
+    <p class="texto">
+        ¡Una heroína tiene un mensaje para usted!
+    </p>
+
+    <div class="marco-ladybug">
+
+        <span class="destello d1">✨</span>
+        <span class="destello d2">💜</span>
+        <span class="destello d3">✨</span>
+        <span class="destello d4">❤️</span>
+
+        <img
+            src="ladybug.png"
+            class="ladybug"
+            alt="Ladybug estilo anime"
+        >
+
+    </div>
+
+    <div class="tarjeta">
+
+        <h2>¡Feliz cumpleaños, Tania! ❤️</h2>
+
+        <p class="texto">
+            ¡Hola, Tania!
+            <br><br>
+            Hoy es un día muy especial y no podía dejarlo pasar
+            sin desearle toda la felicidad del mundo.
+            <br><br>
+            Que nunca le falten motivos para sonreír,
+            sueños por cumplir y personas que la quieran.
+            <br><br>
+            Que su vida esté llena de momentos mágicos,
+            aventuras maravillosas y muchísima alegría.
+            <br><br>
+            ¡Disfrute su día!
+            <br>
+            🐞 Con cariño, Ladybug.
+        </p>
+
+    </div>
+
+    <button class="boton" onclick="mostrar('carta')">
+        Tengo otra sorpresa 💌
+    </button>
+
+</section>
+
+<!-- CARTA -->
+
+<section class="pantalla" id="carta">
+
+    <div class="flor">💌 🌷</div>
+
+    <h1>Para Tania</h1>
+
+    <div class="tarjeta">
+
+        <div class="carta">
+
+            En este día quiero desearle un cumpleaños
+            lleno de alegría, tranquilidad y momentos
+            que siempre pueda recordar.
+
+            <br><br>
+
+            Que cada amanecer le traiga nuevas esperanzas
+            y cada atardecer le recuerde lo bonito que
+            es vivir y seguir soñando.
+
+            <br><br>
+
+            Que nunca pierda esa luz que la hace especial.
+            Le deseo muchas cosas bonitas hoy y siempre.
+
+            <div class="firma">
+                Con mucho cariño ❤️
+            </div>
+
+        </div>
+
+    </div>
+
+    <button class="boton" onclick="mostrar('foto')">
+        Un recuerdo especial 🌷
+    </button>
+
+</section>
+
+<!-- FOTOGRAFÍA -->
+
+<section class="pantalla" id="foto">
+
+    <h1>Un recuerdo especial</h1>
+
+    <div class="flor">🌷 🌷 🌷</div>
+
+    <img
+        src="tania.jpg"
+        class="foto"
+        alt="Fotografía de Tania"
+        onerror="this.style.display='none';
+        document.getElementById('sinFoto').style.display='block'"
+    >
+
+    <p id="sinFoto" class="texto" style="display:none">
+        No se encontró tania.jpg.
+        Compruebe que esté en la carpeta de la demo.
+    </p>
+
+    <p class="texto">
+        Que la vida le regale muchos momentos
+        tan bonitos como los que merece recordar.
+    </p>
+
+    <button class="boton" onclick="mostrar('final')">
+        Ver el último mensaje ❤️
+    </button>
+
+</section>
+
+<!-- FINAL -->
+
+<section class="pantalla" id="final">
+
+    <div class="flor">🌷 🐞 🌷</div>
+
+    <h1>¡Feliz cumpleaños!</h1>
+
+    <h2>Tania ❤️</h2>
+
+    <div class="tarjeta">
+
+        <p class="texto">
+            Que su vida esté llena de amaneceres hermosos,
+            atardeceres inolvidables y sueños que se hagan realidad.
+
+            <br><br>
+
+            Que cada nuevo día le dé una razón para sonreír
+            y que nunca deje de perseguir aquello que la hace feliz.
+
+            <br><br>
+
+            ¡Disfrute mucho su día!
+        </p>
+
+    </div>
+
+    <div class="separador">✦ ✦ ✦</div>
+
+    <p class="texto">Con cariño, para usted. ❤️</p>
+
+    <button class="boton" onclick="mostrar('bienvenida')">
+        Volver a ver la sorpresa 🔄
+    </button>
+
+</section>
+
+<script>
+
+// NAVEGACIÓN
+
+function mostrar(id){
+
+    document.querySelectorAll('.pantalla')
+    .forEach(p=>p.classList.remove('activa'));
+
+    document.getElementById(id).classList.add('activa');
+
+    window.scrollTo({top:0,behavior:'smooth'});
+
+}
+
+// PARTÍCULAS
+
+const fondo=document.getElementById('fondo');
+
+function crearParticula(){
+
+    const p=document.createElement('div');
+    p.className='particula';
+
+    const elementos=['❤️','🌷','✨','💜','🐞'];
+
+    p.textContent=elementos[
+        Math.floor(Math.random()*elementos.length)
+    ];
+
+    p.style.left=Math.random()*100+'%';
+    p.style.fontSize=(14+Math.random()*20)+'px';
+    p.style.animationDuration=(7+Math.random()*7)+'s';
+
+    fondo.appendChild(p);
+
+    setTimeout(()=>p.remove(),15000);
+
+}
+
+setInterval(crearParticula,550);
+
+</script>
+
+</body>
+</html>
+EOF

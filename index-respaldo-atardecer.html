@@ -1,0 +1,741 @@
+cat > index.html <<'EOF'
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Tania 🌷</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --morado: #b99be8;
+    --lila: #eadcff;
+    --blanco: #fffaff;
+    --negro: #171321;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background: var(--negro);
+    overflow-x: hidden;
+}
+
+/* FONDO */
+
+.fondo {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+        radial-gradient(ellipse at 50% 100%, #68417d, transparent 55%),
+        linear-gradient(160deg, #171321, #30203e, #70516f);
+    transition: background 2s ease;
+}
+
+.fondo.amanecer {
+    background:
+        radial-gradient(ellipse at 50% 100%, #f4c8d4, transparent 50%),
+        linear-gradient(160deg, #241c3d, #8874a9, #f0bdce);
+}
+
+.fondo.atardecer {
+    background:
+        radial-gradient(ellipse at 50% 100%, #e5a1a9, transparent 50%),
+        linear-gradient(160deg, #21182e, #765078, #d59aab);
+}
+
+/* SOL */
+
+.sol {
+    position: fixed;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fff3e5, #d9b2ed);
+    filter: blur(2px);
+    opacity: .2;
+    bottom: -85px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 100px 40px rgba(229,190,240,.2);
+    transition: all 3s ease;
+}
+
+body.modo-final .sol {
+    width: 190px;
+    height: 190px;
+    bottom: 8%;
+    opacity: .75;
+    box-shadow: 0 0 100px 50px rgba(255,190,200,.3);
+}
+
+/* PARTICULAS */
+
+.particulas {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.particula {
+    position: absolute;
+    bottom: -40px;
+    animation: flotar linear forwards;
+    opacity: 0;
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(.5);
+        opacity: 0;
+    }
+    15% { opacity: .8; }
+    100% {
+        transform: translateY(-110vh) rotate(360deg) scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* PANTALLAS */
+
+.pantalla {
+    position: relative;
+    z-index: 3;
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 18px;
+    text-align: center;
+    animation: entrada 1s ease;
+}
+
+#inicio {
+    display: flex;
+}
+
+@keyframes entrada {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 460px;
+    padding: 40px 25px;
+    border: 1px solid rgba(255,255,255,.23);
+    border-radius: 30px;
+    background: rgba(255,255,255,.09);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 20px 70px rgba(0,0,0,.3);
+    animation: brillo 4s infinite alternate;
+}
+
+@keyframes brillo {
+    to {
+        box-shadow: 0 15px 55px rgba(190,150,230,.3);
+    }
+}
+
+.etiqueta {
+    display: inline-block;
+    padding: 9px 17px;
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 30px;
+    color: #f1e5ff;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: clamp(38px, 10vw, 55px);
+    line-height: 1.25;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 18px;
+}
+
+.nombre {
+    display: block;
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(75px, 18vw, 105px);
+    color: #e6d3ff;
+    text-shadow: 0 0 20px rgba(220,190,255,.6);
+    animation: nombreEntrada 2.5s ease both,
+               resplandor 3s 2.5s infinite alternate;
+}
+
+@keyframes nombreEntrada {
+    0% {
+        opacity: 0;
+        transform: translateY(45px) scale(.5);
+        filter: blur(12px);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(-8px) scale(1.08);
+        filter: blur(0);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes resplandor {
+    to {
+        text-shadow: 0 0 35px #c9a4ff, 0 0 65px #a77ae7;
+    }
+}
+
+.texto {
+    color: #f4edf8;
+    font-size: 14px;
+    line-height: 2;
+    margin: 22px 0 28px;
+}
+
+.boton {
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 40px;
+    padding: 15px 27px;
+    color: #30203e;
+    background: linear-gradient(135deg, #fffaff, #d9c4f7);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(190,150,240,.3);
+    transition: .35s;
+}
+
+.boton:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 12px 35px rgba(220,190,255,.5);
+}
+
+.boton:active {
+    transform: scale(.93);
+}
+
+.flor {
+    font-size: 52px;
+    margin: 15px;
+    animation: balanceo 3s infinite ease-in-out;
+}
+
+@keyframes balanceo {
+    50% { transform: rotate(12deg) scale(1.1); }
+}
+
+.tulipanes {
+    font-size: 38px;
+    margin: 15px 0;
+    letter-spacing: 8px;
+    animation: aparecerFlores 2s ease;
+}
+
+@keyframes aparecerFlores {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* SOBRE TRIDIMENSIONAL */
+
+.sobre-contenedor {
+    width: 100%;
+    max-width: 420px;
+}
+
+.sobre {
+    position: relative;
+    width: 250px;
+    height: 165px;
+    margin: 50px auto;
+    background: linear-gradient(135deg, #f5efff, #b99bdc);
+    border-radius: 8px;
+    box-shadow: 0 20px 45px rgba(0,0,0,.4);
+    cursor: pointer;
+    animation: flotarSobre 3s infinite ease-in-out;
+    perspective: 800px;
+}
+
+@keyframes flotarSobre {
+    50% { transform: translateY(-10px); }
+}
+
+.sobre-base {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #f5efff, #b99bdc);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    border-radius: 8px;
+}
+
+.sobre::after {
+    content: "🌷";
+    position: absolute;
+    left: 50%;
+    top: 58%;
+    transform: translate(-50%,-50%);
+    font-size: 38px;
+    z-index: 4;
+}
+
+.tapa {
+    position: absolute;
+    inset: 0;
+    background: #d9c3f1;
+    clip-path: polygon(0 0, 100% 0, 50% 65%);
+    transform-origin: top;
+    transition: transform 1s ease;
+    z-index: 5;
+}
+
+.sobre.abierto .tapa {
+    transform: rotateX(180deg);
+}
+
+/* CARTA */
+
+.carta {
+    display: none;
+    width: 100%;
+    max-width: 420px;
+    margin: auto;
+    padding: 35px 25px;
+    background: linear-gradient(145deg, #fffaff, #eee3fa);
+    color: #35233e;
+    border: 2px solid #d4c1ec;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    animation: cartaEntrada 1.5s cubic-bezier(.2,.8,.3,1);
+}
+
+@keyframes cartaEntrada {
+    0% {
+        opacity: 0;
+        transform: translateY(100px) scale(.75) rotateX(20deg);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(-8px) scale(1.02);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.carta h2 {
+    color: #77518f;
+}
+
+.carta p {
+    font-size: 14px;
+    line-height: 2;
+    margin: 17px 0;
+}
+
+.firma {
+    font-family: 'Great Vibes', cursive;
+    font-size: 42px !important;
+    color: #79529d;
+}
+
+/* FOTO */
+
+.foto-marco {
+    position: relative;
+    padding: 10px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #fff, #b89bdc, #222);
+    box-shadow: 0 15px 45px rgba(0,0,0,.4);
+    margin: 25px auto;
+    max-width: 330px;
+    animation: fotoEntrada 1.3s ease;
+    overflow: hidden;
+}
+
+.foto-marco::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -60%;
+    width: 45%;
+    height: 300%;
+    transform: rotate(30deg);
+    background: rgba(255,255,255,.35);
+    animation: brilloFoto 4s infinite;
+}
+
+@keyframes brilloFoto {
+    0%, 35% { left: -70%; }
+    70%, 100% { left: 140%; }
+}
+
+@keyframes fotoEntrada {
+    from {
+        opacity: 0;
+        transform: scale(.7) rotate(-5deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+.foto-marco img {
+    display: block;
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.pie-foto {
+    font-family: 'Great Vibes', cursive;
+    font-size: 35px;
+    color: #eadcff;
+    margin: 20px 0;
+}
+
+/* FINAL */
+
+.final-titulo {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(55px, 14vw, 75px);
+    color: #e3ceff;
+    text-shadow: 0 0 25px #bda0e8;
+    animation: finalEntrada 2s ease both;
+}
+
+@keyframes finalEntrada {
+    from {
+        opacity: 0;
+        transform: scale(.5) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.final-texto {
+    animation: entrada 2s ease both;
+}
+
+.destellos {
+    font-size: 38px;
+    margin: 20px;
+    animation: girar 6s infinite linear;
+}
+
+@keyframes girar {
+    to { transform: rotate(360deg); }
+}
+
+.corazon-final {
+    display: inline-block;
+    font-size: 28px;
+    animation: latido 1s infinite;
+}
+
+@keyframes latido {
+    50% { transform: scale(1.4); }
+}
+
+@media(max-width:380px) {
+    .contenedor { padding: 30px 18px; }
+    .sobre { width: 210px; height: 145px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="fondo" id="fondo"></div>
+<div class="sol"></div>
+<div class="particulas" id="particulas"></div>
+
+<!-- BIENVENIDA -->
+
+<section class="pantalla" id="inicio">
+    <div class="contenedor">
+
+        <div class="etiqueta">UN DETALLE ESPECIAL</div>
+
+        <div class="tulipanes">🌷 🌷 🌷</div>
+
+        <h1>Un pequeño detalle<br>para ti</h1>
+
+        <span class="nombre">Tania</span>
+
+        <p class="texto">
+            Como un amanecer que ilumina el cielo
+            y un atardecer que pinta el horizonte,
+            hay personas que hacen más bonito
+            cada momento.
+        </p>
+
+        <button class="boton" onclick="mostrarSobre()">
+            Descubrir sorpresa ✨
+        </button>
+
+        <div class="flor">🌷</div>
+
+    </div>
+</section>
+
+<!-- SOBRE -->
+
+<section class="pantalla" id="sobrePantalla">
+    <div class="sobre-contenedor">
+
+        <div class="etiqueta">CON MUCHO CARIÑO</div>
+
+        <h2>Una carta para usted</h2>
+
+        <p class="texto">
+            Hay palabras que merecen un lugar especial...
+        </p>
+
+        <div class="sobre" id="sobre" onclick="abrirCarta()">
+            <div class="sobre-base"></div>
+            <div class="tapa"></div>
+        </div>
+
+        <p class="texto">Toque el sobre para abrirlo 💌</p>
+
+        <div class="tulipanes">🌷 🤍 🌷</div>
+
+    </div>
+</section>
+
+<!-- CARTA -->
+
+<section class="pantalla" id="cartaPantalla">
+
+    <div class="carta" id="carta">
+
+        <div class="flor">🌷</div>
+
+        <h2>Querida Tania</h2>
+
+        <p>
+            Así como los tulipanes llenan de belleza
+            un jardín, espero que nunca le falten
+            motivos para llenar de alegría sus días.
+        </p>
+
+        <p>
+            Que cada amanecer le traiga nuevas
+            ilusiones y que cada atardecer le
+            recuerde lo bonito que es vivir.
+        </p>
+
+        <p>
+            Que siempre encuentre razones para
+            sonreír, sueños por cumplir y momentos
+            que guarde para siempre en su corazón.
+        </p>
+
+        <p class="firma">
+            Con cariño,<br>Frankling ❤️
+        </p>
+
+        <button class="boton" onclick="mostrarFoto()">
+            Ver otro detalle 🌷
+        </button>
+
+    </div>
+
+</section>
+
+<!-- FOTO -->
+
+<section class="pantalla" id="fotoPantalla">
+
+    <div class="contenedor">
+
+        <div class="etiqueta">UN RECUERDO ESPECIAL</div>
+
+        <h2>Un momento para recordar</h2>
+
+        <div class="foto-marco">
+            <img src="tania.jpg" alt="Fotografía especial de Tania">
+        </div>
+
+        <p class="pie-foto">
+            Que nunca deje de brillar ✨
+        </p>
+
+        <div class="tulipanes">🌷 🤍 🌷</div>
+
+        <button class="boton" onclick="mostrarFinal()">
+            Continuar ✨
+        </button>
+
+    </div>
+
+</section>
+
+<!-- FINAL -->
+
+<section class="pantalla" id="final">
+
+    <div class="contenedor">
+
+        <div class="destellos">✨ 🌷 ✨</div>
+
+        <div class="final-titulo">¡Feliz cumpleaños!</div>
+
+        <h2>Tania 🤍</h2>
+
+        <p class="texto final-texto">
+            Que su vida esté llena de amaneceres
+            hermosos, atardeceres inolvidables
+            y sueños que se hagan realidad.
+        </p>
+
+        <div class="tulipanes">🌷 🌷 🌷</div>
+
+        <p class="texto">
+            Que nunca le falten motivos para sonreír.
+            Hoy y siempre merece cosas bonitas.
+        </p>
+
+        <div class="final-titulo">Con cariño</div>
+
+        <h2>Frankling</h2>
+
+        <div class="destellos">
+            <span class="corazon-final">💜</span>
+            🤍 🖤
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+
+const particulas = document.getElementById("particulas");
+
+function crearParticula() {
+
+    const p = document.createElement("span");
+
+    p.className = "particula";
+
+    const elementos = ["🌸", "🌷", "♡", "✧", "♥", "✨"];
+
+    p.textContent = elementos[
+        Math.floor(Math.random() * elementos.length)
+    ];
+
+    p.style.left = Math.random() * 100 + "vw";
+
+    p.style.fontSize = (12 + Math.random() * 22) + "px";
+
+    p.style.animationDuration = (8 + Math.random() * 8) + "s";
+
+    particulas.appendChild(p);
+
+    setTimeout(() => p.remove(), 17000);
+}
+
+setInterval(crearParticula, 550);
+
+function cambiarPantalla(id) {
+
+    document.querySelectorAll(".pantalla").forEach(p => {
+        p.style.display = "none";
+    });
+
+    document.getElementById(id).style.display = "flex";
+
+    window.scrollTo(0, 0);
+}
+
+function mostrarSobre() {
+
+    cambiarPantalla("sobrePantalla");
+
+}
+
+function abrirCarta() {
+
+    const sobre = document.getElementById("sobre");
+
+    if (sobre.classList.contains("abierto")) return;
+
+    sobre.classList.add("abierto");
+
+    setTimeout(() => {
+
+        cambiarPantalla("cartaPantalla");
+
+        document.getElementById("carta").style.display = "block";
+
+    }, 1000);
+
+}
+
+function mostrarFoto() {
+
+    cambiarPantalla("fotoPantalla");
+
+    document.getElementById("fondo").className = "fondo amanecer";
+
+}
+
+function mostrarFinal() {
+
+    cambiarPantalla("final");
+
+    document.body.classList.add("modo-final");
+
+    document.getElementById("fondo").className = "fondo atardecer";
+
+    for (let i = 0; i < 40; i++) {
+
+        setTimeout(crearParticula, i * 100);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+EOF
