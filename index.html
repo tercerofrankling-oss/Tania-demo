@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Para Tania ❤️</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -43,8 +43,14 @@ body {
 }
 
 @keyframes aparecer {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h1 {
@@ -87,6 +93,7 @@ button:active {
 }
 
 /* FONDO */
+
 .fondo {
     background:
         linear-gradient(135deg, #160b31bb, #5b2675aa, #120b26bb),
@@ -94,6 +101,7 @@ button:active {
 }
 
 /* PANTALLA DE ACCESO */
+
 #acceso {
     position: fixed;
     inset: 0;
@@ -118,7 +126,6 @@ button:active {
     background: #1b102bee;
     box-shadow: 0 0 40px #d879c866;
     animation: aparecer 1.2s ease;
-    text-align: center;
 }
 
 .acceso-corazon {
@@ -127,8 +134,14 @@ button:active {
     animation: latido 2s infinite;
 }
 
-.acceso-contenido h1 { font-size: 34px; }
-.acceso-contenido p { font-size: 17px; color: #f5c5e8; }
+.acceso-contenido h1 {
+    font-size: 34px;
+}
+
+.acceso-contenido p {
+    font-size: 17px;
+    color: #f5c5e8;
+}
 
 #nombreTania {
     width: 100%;
@@ -144,20 +157,47 @@ button:active {
     font-family: Georgia, serif;
 }
 
-#nombreTania::placeholder { color: #c69abb; }
-#mensajeError { color: #ff9dbb; font-size: 14px; margin-top: 15px; min-height: 22px; }
-#acceso button[type="submit"] { width: 100%; }
+#nombreTania::placeholder {
+    color: #c69abb;
+}
 
-.oculto { display: none !important; }
+#mensajeError {
+    color: #ff9dbb;
+    font-size: 14px;
+    margin-top: 15px;
+    min-height: 22px;
+}
+
+#acceso button {
+    width: 100%;
+}
+
+.oculto {
+    display: none !important;
+}
 
 @keyframes latido {
-    50% { transform: scale(1.08); }
+    50% {
+        transform: scale(1.08);
+    }
 }
 
 /* RETO DEL CORAZÓN */
-#retoCorazon { animation: aparecer 1s ease; }
-#retoCorazon h2 { color: #f5c5e8; font-size: 25px; margin-bottom: 12px; }
-#retoCorazon p { color: #eac5e5; font-size: 16px; }
+
+#retoCorazon {
+    animation: aparecer 1s ease;
+}
+
+#retoCorazon h2 {
+    color: #f5c5e8;
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+#retoCorazon p {
+    color: #eac5e5;
+    font-size: 16px;
+}
 
 .corazon-interactivo {
     display: block;
@@ -174,12 +214,22 @@ button:active {
     -webkit-tap-highlight-color: transparent;
 }
 
-.corazon-interactivo:hover { transform: scale(1.12); }
-.corazon-interactivo:active { transform: scale(.85); }
+.corazon-interactivo:hover {
+    transform: scale(1.12);
+    box-shadow: none;
+}
+
+.corazon-interactivo:active {
+    transform: scale(.85);
+}
 
 @keyframes latidoCorazon {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.12); }
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.12);
+    }
 }
 
 .barra-progreso {
@@ -217,963 +267,1720 @@ button:active {
     font-size: 15px;
 }
 
-/* =====================================================
-   ESTILO CINEMATOGRÁFICO REALISTA
-===================================================== */
+/* ANIMACIÓN DE CUMPLEAÑOS */
+
 #animacionCumple {
     position: fixed;
     inset: 0;
     z-index: 3000;
     display: none;
     overflow: hidden;
-    background: radial-gradient(circle at center, #180c26 0%, #0a0412 100%);
-    user-select: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background:
+        linear-gradient(
+            180deg,
+            #ffb2c9 0%,
+            #f7a4c0 35%,
+            #b96e9d 70%,
+            #382044 100%
+        );
 }
 
 #animacionCumple.activa {
-    display: block;
+    display: flex;
     animation: aparecerEscena 1s ease;
 }
 
 @keyframes aparecerEscena {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-.cine-scene {
+.cielo-animacion {
     position: absolute;
     inset: 0;
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #fff1c9 0,
+            #ffd0dc 18%,
+            transparent 48%
+        );
+    animation: brilloCielo 5s ease-in-out infinite alternate;
+}
+
+@keyframes brilloCielo {
+    from {
+        opacity: .5;
+        transform: scale(1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+.sol-animacion {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff6d8, #ffc2cf);
+    box-shadow: 0 0 70px #fff0c9;
+    top: 25%;
+    animation: solBrillante 4s ease-in-out infinite alternate;
+}
+
+@keyframes solBrillante {
+    from {
+        transform: scale(.9);
+        opacity: .7;
+    }
+    to {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
+.titulo-cumple {
+    position: absolute;
+    top: 9%;
+    width: 100%;
+    padding: 0 12px;
+    color: #fff8f4;
+    font-size: clamp(32px, 8vw, 55px);
+    text-align: center;
+    text-shadow:
+        0 3px 8px #a33c70,
+        0 0 25px #fff;
+    z-index: 10;
+    opacity: 0;
+    animation: tituloEntrada 2s ease 1s forwards;
+}
+
+@keyframes tituloEntrada {
+    from {
+        opacity: 0;
+        transform: translateY(-35px) scale(.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.subtitulo-cumple {
+    position: absolute;
+    top: 19%;
+    color: #fff4f4;
+    font-size: 19px;
+    text-shadow: 0 2px 8px #8c3b70;
+    z-index: 10;
+    opacity: 0;
+    animation: tituloEntrada 2s ease 2s forwards;
+}
+
+.arbol-escena {
+    position: absolute;
+    width: min(95vw, 520px);
+    height: min(75vh, 650px);
+    bottom: 0;
+    z-index: 4;
+}
+
+.arbol-escena svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.tronco-arbol {
+    fill: none;
+    stroke: #54302e;
+    stroke-width: 17;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: crecerArbol 4s ease-out 1s forwards;
+}
+
+.rama-arbol {
+    fill: none;
+    stroke: #654039;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: crecerRamas 3s ease-out 3s forwards;
+}
+
+@keyframes crecerArbol {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes crecerRamas {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.flores-arbol {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 6;
+}
+
+.flor-animada {
+    position: absolute;
+    opacity: 0;
+    transform: scale(0);
+    animation: florecer 1.5s ease forwards;
+    filter: drop-shadow(0 2px 5px #a33c70);
+}
+
+@keyframes florecer {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(-40deg);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.3) rotate(15deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+.corazon-escena {
+    position: absolute;
+    font-size: 23px;
+    z-index: 8;
+    opacity: 0;
+    animation: subirCorazon 5s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes subirCorazon {
+    0% {
+        transform: translateY(40px) rotate(0);
+        opacity: 0;
+    }
+    15% {
+        opacity: .9;
+    }
+    85% {
+        opacity: .9;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(35deg);
+        opacity: 0;
+    }
+}
+
+.brillo-escena {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 12px white;
+    animation: destello 2s ease-in-out infinite alternate;
+    z-index: 9;
+}
+
+@keyframes destello {
+    from {
+        opacity: .2;
+        transform: scale(.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.6);
+    }
+}
+
+.mensaje-final-animacion {
+    position: absolute;
+    bottom: 5%;
+    color: #fff8f4;
+    font-size: 17px;
+    text-shadow: 0 2px 8px #4b1d42;
+    z-index: 12;
+    opacity: 0;
+    animation: tituloEntrada 2s ease 7s forwards;
+}
+
+/* INTRODUCCIÓN */
+
+.intro {
+    font-size: 20px;
+    max-width: 360px;
+    color: #f5c5e8;
+}
+
+/* SOBRE */
+
+.sobre {
+    width: 230px;
+    height: 150px;
+    margin-top: 35px;
+    position: relative;
+    background: #e9b8d9;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px #0008;
+    perspective: 800px;
+}
+
+.sobre::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 115px solid transparent;
+    border-right: 115px solid transparent;
+    border-top: 85px solid #c084b7;
+    transform-origin: top;
+    transition: transform 1s;
+    z-index: 3;
+}
+
+.sobre.abierto::before {
+    transform: rotateX(180deg);
+}
+
+.sobre::after {
+    content: "❤️";
+    position: absolute;
+    top: 55px;
+    left: 95px;
+    font-size: 38px;
+    z-index: 4;
+}
+
+/* CARTAS */
+
+.carta {
+    max-width: 450px;
+    width: 100%;
+    padding: 30px 23px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #fff0f8, #f3d7ed);
+    color: #70416d;
+    box-shadow: 0 10px 40px #0008;
+    line-height: 1.8;
+    font-size: 18px;
+    border: 2px solid #e6a8d6;
+}
+
+.carta p {
+    color: #70416d;
+}
+
+.carta h2 {
+    color: #a64f91;
+}
+
+/* FOTOGRAFÍA PRINCIPAL */
+
+.foto {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    max-height: 75vh;
+    height: auto;
+    object-fit: contain;
+    border: 5px solid #f8d8ef;
+    border-radius: 20px;
+    box-shadow: 0 0 35px #e7a5e699;
+    margin: 25px auto;
+}
+
+.texto-foto {
+    font-size: 21px;
+    max-width: 360px;
+    color: #f6c9eb;
+}
+
+/* FINAL */
+
+#final {
+    background:
+        linear-gradient(180deg, #170b30bb, #4b2455bb, #170b30ee),
+        url("tania-fondo.jpg") center / cover no-repeat;
+}
+
+/* FOTOGRAFÍAS FINALES */
+
+.fotos-finales {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 1.2s ease;
+    gap: 25px;
+    margin: 25px 0;
+    width: 100%;
 }
 
-.cine-scene.active {
-    opacity: 1;
-    visibility: visible;
+.fotos-finales img {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    max-height: 75vh;
+    object-fit: contain;
+    border: 5px solid #f8d8ef;
+    border-radius: 20px;
+    box-shadow: 0 0 25px #f0abfc99;
+    transition: .4s;
 }
 
-.cine-subtitle {
-    position: absolute;
-    top: 15%;
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(2.2rem, 6vw, 3.2rem);
-    color: #fce8f5;
-    text-shadow: 0 0 20px rgba(233, 155, 213, 0.6);
-    text-align: center;
-    padding: 0 15px;
+.fotos-finales img:hover {
+    transform: scale(1.02);
 }
 
-/* Corazón hiper-realista realista tipo joya/cristal */
-.cine-heart-target {
+/* MENSAJE FINAL */
+
+.mensaje-final {
+    max-width: 400px;
+    width: 100%;
+    line-height: 1.8;
+    font-size: 18px;
+    margin-top: 15px;
+    background: #f7dff0ee;
+    color: #70416d;
+    padding: 22px;
+    border-radius: 18px;
+}
+
+.mensaje-final p {
+    color: #70416d;
+}
+
+/* SEGUNDO SOBRE */
+
+.sobre-segundo {
+    width: 250px;
+    height: 155px;
+    margin: 30px auto;
     position: relative;
-    width: 110px;
-    height: 110px;
-    filter: drop-shadow(0 10px 25px rgba(180, 20, 90, 0.5));
-    animation: latidoRealista 2s infinite ease-in-out;
+    background: #edc0dc;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px #0008;
+    perspective: 800px;
 }
 
-.cine-heart-shape {
+.sobre-segundo::before {
+    content: "";
     position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 32% 28%, #ffffff 0%, #ff689d 25%, #d11155 65%, #630526 100%);
-    clip-path: path('M50 88.6C26.6 69.7 1.3 49.2 1.3 25.8c0-15.6 12.2-27.8 27.8-27.8c7.9 0 15.5 3.6 20.9 9.5c5.4-5.9 13-9.5 20.9-9.5c15.6 0 27.8 12.2 27.8 27.8c0 23.5-25.4 44-48.8 62.8Z');
-    box-shadow: inset 0 0 15px rgba(255,255,255,0.4);
+    top: 0;
+    left: 0;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    border-top: 90px solid #c77fb4;
+    transform-origin: top;
+    transition: transform 1s;
+    z-index: 3;
 }
 
-@keyframes latidoRealista {
-    0%, 100% { transform: scale(1); }
-    30% { transform: scale(1.06); }
-    50% { transform: scale(0.98); }
-    70% { transform: scale(1.03); }
+.sobre-segundo.abierto::before {
+    transform: rotateX(180deg);
 }
 
-.cine-bow-area {
+.sobre-segundo::after {
+    content: "💌";
     position: absolute;
-    bottom: 16%;
-    left: 14%;
-    width: 130px;
-    height: 130px;
-    touch-action: none;
-    cursor: grab;
-    z-index: 15;
+    top: 55px;
+    left: 105px;
+    font-size: 40px;
+    z-index: 4;
 }
 
-.cine-hint {
+/* TEMPORIZADOR */
+
+.temporizador {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: linear-gradient(
+        145deg,
+        #160d29f5,
+        #29143bf5,
+        #160d29f5
+    );
+    color: #f8d9f0;
+    padding: 28px 18px;
+    border-radius: 24px;
+    max-width: 440px;
+    width: 100%;
+    margin-top: 30px;
+    border: 1px solid #d58ac2;
+    box-shadow:
+        0 0 15px #d879c855,
+        0 0 35px #9b4d9144,
+        inset 0 0 20px #ffffff08;
+    animation: brilloReloj 4s ease-in-out infinite;
+}
+
+.temporizador::before {
+    content: "♥";
     position: absolute;
-    bottom: 7%;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 4px;
-    color: #bfa0b5;
+    top: 8px;
+    right: 17px;
+    font-size: 30px;
+    color: #e99bd5;
+    opacity: .45;
+    z-index: -1;
+    animation: latido 2s infinite;
+}
+
+.temporizador::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: #b45aa5;
+    filter: blur(90px);
+    opacity: .18;
+    bottom: -100px;
+    left: -60px;
+    z-index: -1;
+}
+
+@keyframes brilloReloj {
+    0%, 100% {
+        box-shadow:
+            0 0 15px #d879c855,
+            0 0 35px #9b4d9144,
+            inset 0 0 20px #ffffff08;
+    }
+    50% {
+        box-shadow:
+            0 0 25px #e99bd588,
+            0 0 50px #9b4d9188,
+            inset 0 0 25px #ffffff12;
+    }
+}
+
+.temporizador h2 {
+    color: #f5c5e8;
+    font-size: 23px;
+    margin-bottom: 12px;
+    text-shadow: 0 0 12px #d879c8;
+}
+
+.subtitulo-reloj {
+    color: #d9b4df;
+    font-size: 15px;
+    margin-bottom: 22px;
+}
+
+.reloj-contenedor {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    width: 100%;
+}
+
+.unidad-reloj {
+    padding: 15px 5px;
+    background: linear-gradient(145deg, #382047, #21132f);
+    border: 1px solid #9b4d91;
+    border-radius: 15px;
+    box-shadow:
+        inset 0 0 12px #d879c822,
+        0 4px 12px #0005;
+    transition: .3s;
+}
+
+.unidad-reloj:hover {
+    transform: translateY(-4px);
+    border-color: #f5c5e8;
+    box-shadow: 0 0 18px #d879c877;
+}
+
+.unidad-reloj .numero {
+    display: block;
+    color: #fff0fa;
+    font-size: clamp(27px, 7vw, 38px);
+    font-weight: bold;
+    text-shadow: 0 0 12px #e99bd5;
+    line-height: 1.2;
+}
+
+.unidad-reloj .etiqueta {
+    display: block;
+    color: #dca8d5;
+    font-size: 13px;
+    margin-top: 7px;
+    letter-spacing: 1px;
     text-transform: uppercase;
 }
 
-#cineFlyingArrow {
-    position: fixed;
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(90deg, #d4af37, #fff);
-    display: none;
-    z-index: 3020;
-    transform-origin: left center;
-    box-shadow: 0 0 10px #d4af37, 0 0 20px #fff;
-    pointer-events: none;
-}
-
-.cine-particle {
-    position: fixed;
-    background: #ffdfba;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 3019;
-    box-shadow: 0 0 6px #ffb3d1;
-}
-
-.cine-explosion {
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle, #ffb3d1 0%, #b31155 45%, transparent 80%);
-    z-index: 3025;
-    mix-blend-mode: screen;
-    pointer-events: none;
-    opacity: 0;
-    transform: scale(0);
-}
-
-.cine-explosion.boom {
-    animation: cineBoom 1.5s ease-out forwards;
-}
-
-@keyframes cineBoom {
-    0% { opacity: 1; transform: scale(0); }
-    100% { opacity: 0; transform: scale(5.5); }
-}
-
-/* Banner Intermedio */
-.cine-banner {
-    background: radial-gradient(circle at center, #4a153c 0%, #0e0514 100%);
-    z-index: 3005;
-    text-align: center;
-    padding: 20px;
-}
-
-.cine-banner-wish {
-    font-family: Georgia, serif;
-    font-style: italic;
-    color: #eac5e5;
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-}
-
-.cine-banner-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(3.5rem, 11vw, 6.5rem);
-    color: #ffffff;
-    text-shadow: 0 0 30px #ff689d, 0 0 10px #d4af37;
-    line-height: 1.05;
-}
-
-.cine-banner-line {
-    width: 220px;
-    height: 10px;
-    border-top: 2px solid rgba(255,255,255,0.7);
-    border-radius: 50%;
-    margin: 12px auto;
-}
-
-.cine-banner-sub {
-    font-style: italic;
-    color: #f5c5e8;
-    font-size: 1.05rem;
-}
-
-/* Escena Final Árbol Realista */
-.cine-tree-scene {
-    background: radial-gradient(circle at 60% 40%, #261133 0%, #08030d 100%);
-    z-index: 3010;
-}
-
-#cineTreeCanvas {
-    position: absolute;
-    inset: 0;
+.unidad-reloj:last-child {
+    grid-column: 1 / -1;
+    max-width: 190px;
     width: 100%;
-    height: 100%;
+    justify-self: center;
 }
 
-.cine-tree-message {
-    position: absolute;
-    bottom: 12%;
-    left: 8%;
-    right: 8%;
-    z-index: 3015;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 2s ease, transform 2s ease;
-    text-align: left;
-    pointer-events: none;
-}
-
-.cine-tree-message.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.cine-tree-message .pre {
-    font-style: italic;
-    color: #dcb3d3;
-    font-size: 1.1rem;
-}
-
-.cine-tree-message h2 {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(3rem, 8.5vw, 4.8rem);
-    color: #ffe6f2;
-    text-shadow: 0 0 25px rgba(255, 104, 157, 0.8);
-    margin: 2px 0 6px;
-    line-height: 1.05;
-}
-
-.cine-tree-message p {
-    font-size: 1.05rem;
+.promesa-reloj {
     color: #f5c5e8;
-    font-style: italic;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-top: 23px;
+    text-shadow: 0 0 10px #d879c866;
 }
 
-/* RESTO DE ESTILOS ORIGINALES */
-.intro { font-size: 20px; max-width: 360px; color: #f5c5e8; }
-.sobre { width: 230px; height: 150px; margin-top: 35px; position: relative; background: #e9b8d9; border-radius: 5px; box-shadow: 0 10px 30px #0008; perspective: 800px; }
-.sobre::before { content: ""; position: absolute; top: 0; left: 0; border-left: 115px solid transparent; border-right: 115px solid transparent; border-top: 85px solid #c084b7; transform-origin: top; transition: transform 1s; z-index: 3; }
-.sobre.abierto::before { transform: rotateX(180deg); }
-.sobre::after { content: "❤️"; position: absolute; top: 55px; left: 95px; font-size: 38px; z-index: 4; }
-
-.carta { max-width: 450px; width: 100%; padding: 30px 23px; border-radius: 20px; background: linear-gradient(145deg, #fff0f8, #f3d7ed); color: #70416d; box-shadow: 0 10px 40px #0008; line-height: 1.8; font-size: 18px; border: 2px solid #e6a8d6; }
-.carta p { color: #70416d; }
-.carta h2 { color: #a64f91; }
-
-.foto { display: block; width: 100%; max-width: 650px; max-height: 75vh; height: auto; object-fit: contain; border: 5px solid #f8d8ef; border-radius: 20px; box-shadow: 0 0 35px #e7a5e699; margin: 25px auto; }
-.texto-foto { font-size: 21px; max-width: 360px; color: #f6c9eb; }
-
-#final { background: linear-gradient(180deg, #170b30bb, #4b2455bb, #170b30ee), url("tania-fondo.jpg") center / cover no-repeat; }
-
-.fotos-finales { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 25px; margin: 25px 0; width: 100%; }
-.fotos-finales img { display: block; width: 100%; max-width: 480px; height: auto; max-height: 75vh; object-fit: contain; border: 5px solid #f8d8ef; border-radius: 20px; box-shadow: 0 0 25px #f0abfc99; transition: .4s; }
-.fotos-finales img:hover { transform: scale(1.02); }
-
-.mensaje-final { max-width: 400px; width: 100%; line-height: 1.8; font-size: 18px; margin-top: 15px; background: #f7dff0ee; color: #70416d; padding: 22px; border-radius: 18px; }
-.mensaje-final p { color: #70416d; }
-
-.sobre-segundo { width: 250px; height: 155px; margin: 30px auto; position: relative; background: #edc0dc; border-radius: 5px; box-shadow: 0 10px 30px #0008; perspective: 800px; }
-.sobre-segundo::before { content: ""; position: absolute; top: 0; left: 0; border-left: 125px solid transparent; border-right: 125px solid transparent; border-top: 90px solid #c77fb4; transform-origin: top; transition: transform 1s; z-index: 3; }
-.sobre-segundo.abierto::before { transform: rotateX(180deg); }
-.sobre-segundo::after { content: "💌"; position: absolute; top: 55px; left: 105px; font-size: 40px; z-index: 4; }
-
-.temporizador { position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(145deg, #160d29f5, #29143bf5, #160d29f5); color: #f8d9f0; padding: 28px 18px; border-radius: 24px; max-width: 440px; width: 100%; margin-top: 30px; border: 1px solid #d58ac2; box-shadow: 0 0 15px #d879c855, 0 0 35px #9b4d9144, inset 0 0 20px #ffffff08; animation: brilloReloj 4s ease-in-out infinite; }
-.temporizador::before { content: "♥"; position: absolute; top: 8px; right: 17px; font-size: 30px; color: #e99bd5; opacity: .45; z-index: -1; animation: latido 2s infinite; }
-.temporizador::after { content: ""; position: absolute; width: 180px; height: 180px; border-radius: 50%; background: #b45aa5; filter: blur(90px); opacity: .18; bottom: -100px; left: -60px; z-index: -1; }
-
-@keyframes brilloReloj {
-    0%, 100% { box-shadow: 0 0 15px #d879c855, 0 0 35px #9b4d9144, inset 0 0 20px #ffffff08; }
-    50% { box-shadow: 0 0 25px #e99bd588, 0 0 50px #9b4d9188, inset 0 0 25px #ffffff12; }
+.fecha-reloj {
+    color: #c99acb;
+    font-size: 13px;
+    margin-top: 12px;
 }
 
-.temporizador h2 { color: #f5c5e8; font-size: 23px; margin-bottom: 12px; text-shadow: 0 0 12px #d879c8; }
-.subtitulo-reloj { color: #d9b4df; font-size: 15px; margin-bottom: 22px; }
-.reloj-contenedor { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; width: 100%; }
-.unidad-reloj { padding: 15px 5px; background: linear-gradient(145deg, #382047, #21132f); border: 1px solid #9b4d91; border-radius: 15px; box-shadow: inset 0 0 12px #d879c822, 0 4px 12px #0005; transition: .3s; }
-.unidad-reloj:hover { transform: translateY(-4px); border-color: #f5c5e8; box-shadow: 0 0 18px #d879c877; }
-.unidad-reloj .numero { display: block; color: #fff0fa; font-size: clamp(27px, 7vw, 38px); font-weight: bold; text-shadow: 0 0 12px #e99bd5; line-height: 1.2; }
-.unidad-reloj .etiqueta { display: block; color: #dca8d5; font-size: 13px; margin-top: 7px; letter-spacing: 1px; text-transform: uppercase; }
-.unidad-reloj:last-child { grid-column: 1 / -1; max-width: 190px; width: 100%; justify-self: center; }
+/* MÚSICA */
 
-.promesa-reloj { color: #f5c5e8; font-size: 15px; line-height: 1.8; margin-top: 23px; text-shadow: 0 0 10px #d879c866; }
-.fecha-reloj { color: #c99acb; font-size: 13px; margin-top: 12px; }
+.controles-musica {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #241333ee;
+    border-top: 1px solid #d58ac2;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    z-index: 30;
+    flex-wrap: wrap;
+    backdrop-filter: blur(10px);
+}
 
-.controles-musica { position: fixed; bottom: 0; left: 0; width: 100%; background: #241333ee; border-top: 1px solid #d58ac2; padding: 12px 15px; display: flex; justify-content: center; align-items: center; gap: 12px; z-index: 30; flex-wrap: wrap; backdrop-filter: blur(10px); }
-.controles-musica button { margin: 0; padding: 10px 17px; font-size: 14px; }
-.controles-musica label { color: #f5c5e8; font-size: 14px; }
-#volumen { width: 110px; accent-color: #e99bd5; }
+.controles-musica button {
+    margin: 0;
+    padding: 10px 17px;
+    font-size: 14px;
+}
 
-.decoracion { position: fixed; bottom: -40px; font-size: 25px; pointer-events: none; animation: flotar 8s linear forwards; z-index: 5; }
+.controles-musica label {
+    color: #f5c5e8;
+    font-size: 14px;
+}
+
+#volumen {
+    width: 110px;
+    accent-color: #e99bd5;
+}
+
+/* ADORNOS */
+
+.decoracion {
+    position: fixed;
+    bottom: -40px;
+    font-size: 25px;
+    pointer-events: none;
+    animation: flotar 8s linear forwards;
+    z-index: 5;
+}
+
 @keyframes flotar {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-    15% { opacity: 1; }
-    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
 }
+
+/* CELULARES */
 
 @media (max-width: 480px) {
-    .pantalla { padding: 30px 15px 145px; }
-    .intro { font-size: 18px; }
-    .texto-foto { font-size: 19px; }
-    .carta { padding: 25px 18px; font-size: 17px; }
-    .foto { max-height: 70vh; }
-    .fotos-finales img { max-height: 70vh; }
-    .temporizador { padding: 22px 14px; }
-    .temporizador h2 { font-size: 21px; }
-    .reloj-contenedor { gap: 9px; }
-    .unidad-reloj { padding: 13px 4px; }
+    .pantalla {
+        padding: 30px 15px 145px;
+    }
+
+    .intro {
+        font-size: 18px;
+    }
+
+    .texto-foto {
+        font-size: 19px;
+    }
+
+    .carta {
+        padding: 25px 18px;
+        font-size: 17px;
+    }
+
+    .foto {
+        max-height: 70vh;
+    }
+
+    .fotos-finales img {
+        max-height: 70vh;
+    }
+
+    .temporizador {
+        padding: 22px 14px;
+    }
+
+    .temporizador h2 {
+        font-size: 21px;
+    }
+
+    .reloj-contenedor {
+        gap: 9px;
+    }
+
+    .unidad-reloj {
+        padding: 13px 4px;
+    }
+
+    .arbol-escena {
+        width: 100vw;
+        height: 65vh;
+    }
+
+    .titulo-cumple {
+        top: 8%;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ANIMACIÓN CINEMATOGRÁFICA (REALISTA) -->
+<!-- ANIMACIÓN DE CUMPLEAÑOS -->
+
 <div id="animacionCumple">
-    <div class="cine-explosion" id="cineExplosion"></div>
 
-    <!-- Escena 1: Arco y Corazón de Cristal -->
-    <div class="cine-scene active" id="cineScene1">
-        <div class="cine-subtitle">Un instante eterno para Tania...</div>
+    <div class="cielo-animacion"></div>
 
-        <div class="cine-heart-target" id="cineTargetHeart">
-            <div class="cine-heart-shape"></div>
-        </div>
+    <div class="sol-animacion"></div>
 
-        <div class="cine-bow-area" id="cineBowArea">
-            <svg viewBox="0 0 100 100" width="100%" height="100%">
-                <path d="M22 12 Q 48 50 22 88" fill="none" stroke="url(#bowGrad)" stroke-width="3" stroke-linecap="round"/>
-                <defs>
-                    <linearGradient id="bowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#f3b6e5" />
-                        <stop offset="100%" stop-color="#d4af37" />
-                    </linearGradient>
-                </defs>
-                <polyline id="cineBowString" points="22,12 28,50 22,88" fill="none" stroke="#fff" stroke-width="1.2" opacity="0.8"/>
-                <g id="cineArrowInBow" transform="translate(0,0)">
-                    <line x1="15" y1="50" x2="60" y2="50" stroke="#fff" stroke-width="2"/>
-                    <polygon points="60,50 53,46 53,54" fill="#d4af37"/>
-                </g>
-            </svg>
-        </div>
+    <h1 class="titulo-cumple">
+        Happy Birthday ❤️
+    </h1>
 
-        <div id="cineFlyingArrow"></div>
-        <div class="cine-hint">Tira y suelta la flecha</div>
+    <p class="subtitulo-cumple">
+        Para alguien muy especial...
+    </p>
+
+    <div class="arbol-escena">
+
+        <svg viewBox="0 0 500 650" preserveAspectRatio="xMidYMax meet">
+
+            <path
+                class="tronco-arbol"
+                d="
+                M250 650
+                C245 570 255 500 250 420
+                C245 350 250 300 250 250
+                "
+            />
+
+            <path
+                class="rama-arbol"
+                d="
+                M250 430
+                C200 390 160 330 110 290
+                M250 390
+                C300 350 340 300 390 250
+                M250 350
+                C210 300 180 250 160 200
+                M250 320
+                C290 270 320 220 340 180
+                M250 280
+                C220 230 210 190 205 145
+                M250 260
+                C280 210 300 170 310 125
+                M110 290
+                C90 250 85 220 80 190
+                M390 250
+                C420 220 425 190 430 160
+                M160 200
+                C130 170 120 140 120 110
+                M340 180
+                C370 150 380 120 380 90
+                "
+            />
+
+        </svg>
+
+        <div class="flores-arbol" id="floresArbol"></div>
+
     </div>
 
-    <!-- Escena 2: Banner Happy Birthday -->
-    <div class="cine-scene cine-banner" id="cineScene2">
-        <div class="cine-banner-wish">pide un deseo...</div>
-        <div class="cine-banner-title">Happy Birthday</div>
-        <div class="cine-banner-line"></div>
-        <div class="cine-banner-sub">para alguien inolvidable ❤️</div>
-    </div>
+    <p class="mensaje-final-animacion">
+        Que todos tus sueños florezcan... 🌸
+    </p>
 
-    <!-- Escena 3: Árbol Orgánico y Realista -->
-    <div class="cine-scene cine-tree-scene" id="cineScene3">
-        <canvas id="cineTreeCanvas"></canvas>
-        <div class="cine-tree-message" id="cineTreeMsg">
-            <div class="pre">y que este nuevo año...</div>
-            <h2>Para Tania ❤️</h2>
-            <p>Que todos tus sueños florezcan 🌸</p>
-        </div>
-    </div>
+    <div id="corazonesEscena"></div>
+
+    <div id="destellosEscena"></div>
+
 </div>
 
 <!-- PANTALLA DE ACCESO -->
+
 <div id="acceso">
+
     <div class="acceso-contenido">
+
         <div class="acceso-corazon">💜</div>
+
         <h1>Una sorpresa para usted</h1>
-        <p>Esta página guarda algo muy especial. Pero antes de descubrirlo...</p>
-        <p style="margin-top:15px;">¿Cuál es su nombre? ❤️</p>
+
+        <p>
+            Esta página guarda algo muy especial.
+            Pero antes de descubrirlo...
+        </p>
+
+        <p style="margin-top:15px;">
+            ¿Cuál es su nombre? ❤️
+        </p>
 
         <form id="formularioAcceso">
-            <input type="text" id="nombreTania" placeholder="Escriba su nombre..." autocomplete="off" required>
-            <button type="submit">Descubrir mi sorpresa 💌</button>
+
+            <input
+                type="text"
+                id="nombreTania"
+                placeholder="Escriba su nombre..."
+                autocomplete="off"
+                required
+            >
+
+            <button type="submit">
+                Descubrir mi sorpresa 💌
+            </button>
+
         </form>
 
         <p id="mensajeError"></p>
 
         <!-- RETO DEL CORAZÓN -->
-        <div id="retoCorazon" class="oculto">
-            <h2>¡Muy bien, Tania! ❤️</h2>
-            <p>Ahora quiero pedirte algo...<br>Presiona el corazón hasta llenarlo de amor.</p>
 
-            <button type="button" class="corazon-interactivo" id="botonCorazon" onclick="presionarCorazon()" aria-label="Presionar corazón">❤️</button>
+        <div id="retoCorazon" class="oculto">
+
+            <h2>¡Muy bien, Tania! ❤️</h2>
+
+            <p>
+                Ahora quiero pedirte algo...
+                <br>
+                Presiona el corazón hasta llenarlo de amor.
+            </p>
+
+            <button
+                type="button"
+                class="corazon-interactivo"
+                id="botonCorazon"
+                onclick="presionarCorazon()"
+                aria-label="Presionar corazón"
+            >
+                ❤️
+            </button>
 
             <div class="barra-progreso">
-                <div class="progreso-corazon" id="progresoCorazon"></div>
+                <div
+                    class="progreso-corazon"
+                    id="progresoCorazon"
+                ></div>
             </div>
 
-            <span class="porcentaje-corazon" id="porcentajeCorazon">0%</span>
-            <p class="mensaje-corazon" id="mensajeCorazon">Cada toque representa un poquito de cariño. 💜</p>
+            <span
+                class="porcentaje-corazon"
+                id="porcentajeCorazon"
+            >
+                0%
+            </span>
+
+            <p class="mensaje-corazon" id="mensajeCorazon">
+                Cada toque representa un poquito de cariño. 💜
+            </p>
+
         </div>
 
-        <p style="font-size:13px;margin-top:15px;">Hecho con cariño ❤️</p>
+        <p style="font-size:13px;margin-top:15px;">
+            Hecho con cariño ❤️
+        </p>
+
     </div>
+
 </div>
 
 <!-- MÚSICA -->
+
 <audio id="musica" src="musica.m4a" loop preload="auto"></audio>
 
 <div class="controles-musica">
-    <button onclick="alternarMusica()" id="botonMusica">🎵 Reproducir</button>
+
+    <button onclick="alternarMusica()" id="botonMusica">
+        🎵 Reproducir
+    </button>
+
     <label for="volumen">🔊 Volumen</label>
-    <input type="range" id="volumen" min="0" max="1" step="0.01" value="0.7" oninput="cambiarVolumen(this.value)">
+
+    <input
+        type="range"
+        id="volumen"
+        min="0"
+        max="1"
+        step="0.01"
+        value="0.7"
+        oninput="cambiarVolumen(this.value)"
+    >
+
 </div>
 
 <!-- PANTALLA 1 -->
+
 <section id="inicio" class="pantalla activa fondo">
+
     <h1>Para Tania ❤️</h1>
-    <p class="intro">Hay personas que hacen que los días sean más bonitos... y usted es una de ellas. 💜</p>
-    <h2 style="margin-top:25px;color:#f4c2e9;">Hoy cumple 15 años 🎂</h2>
-    <p class="intro">Quiero que este día esté lleno de sonrisas, alegría y momentos inolvidables.</p>
-    <button onclick="abrirSorpresa()">Abrir sorpresa 💌</button>
+
+    <p class="intro">
+        Hay personas que hacen que los días sean más bonitos...
+        y usted es una de ellas. 💜
+    </p>
+
+    <h2 style="margin-top:25px;color:#f4c2e9;">
+        Hoy cumple 15 años 🎂
+    </h2>
+
+    <p class="intro">
+        Quiero que este día esté lleno de sonrisas,
+        alegría y momentos inolvidables.
+    </p>
+
+    <button onclick="abrirSorpresa()">
+        Abrir sorpresa 💌
+    </button>
+
 </section>
 
 <!-- PANTALLA 2 -->
+
 <section id="sobrePantalla" class="pantalla fondo">
+
     <h1>Una carta para usted 💌</h1>
+
     <div class="sobre" id="sobre"></div>
-    <p class="texto-foto">Toque para descubrir su sorpresa 🌷</p>
-    <button onclick="abrirCarta()">Abrir mi carta</button>
+
+    <p class="texto-foto">
+        Toque para descubrir su sorpresa 🌷
+    </p>
+
+    <button onclick="abrirCarta()">
+        Abrir mi carta
+    </button>
+
 </section>
 
 <!-- PANTALLA 3 -->
+
 <section id="cartaPantalla" class="pantalla fondo">
+
     <div class="carta">
+
         <h2>Querida Tania ❤️</h2>
+
         <p>
-            Hoy quiero dedicarle unas palabras especiales. Así como los tulipanes llenan de belleza un jardín, usted tiene una forma especial de hacer más bonitos los momentos.
+            Hoy quiero dedicarle unas palabras especiales.
+
+            Así como los tulipanes llenan de belleza un jardín,
+            usted tiene una forma especial de hacer más bonitos
+            los momentos.
+
             <br><br>
-            Que cada amanecer le traiga nuevas ilusiones y que cada atardecer le recuerde lo bonito que es vivir.
+
+            Que cada amanecer le traiga nuevas ilusiones y que
+            cada atardecer le recuerde lo bonito que es vivir.
+
             <br><br>
-            Nunca deje de sonreír ni de perseguir sus sueños. Se merece cosas maravillosas.
+
+            Nunca deje de sonreír ni de perseguir sus sueños.
+            Se merece cosas maravillosas.
+
             <br><br>
+
             ¡Felices 15 años! 🎂🌷
+
             <br><br>
-            Con cariño,<br><strong>Frankling ❤️</strong>
+
+            Con cariño,
+
+            <br>
+
+            <strong>Frankling ❤️</strong>
         </p>
+
     </div>
-    <button onclick="mostrarFoto()">Continuar 🌷</button>
+
+    <button onclick="mostrarFoto()">
+        Continuar 🌷
+    </button>
+
 </section>
 
 <!-- PANTALLA 4 -->
+
 <section id="fotoPantalla" class="pantalla fondo">
+
     <h1>Un recuerdo especial ❤️</h1>
-    <img src="tania.jpg" class="foto" alt="Fotografía especial">
-    <p class="texto-foto">Hay recuerdos que merecen guardarse para siempre. 💜</p>
-    <button onclick="mostrarFinal()">Continuar ✨</button>
+
+    <img
+        src="tania.jpg"
+        class="foto"
+        alt="Fotografía especial"
+    >
+
+    <p class="texto-foto">
+        Hay recuerdos que merecen guardarse para siempre. 💜
+    </p>
+
+    <button onclick="mostrarFinal()">
+        Continuar ✨
+    </button>
+
 </section>
 
 <!-- PANTALLA 5 -->
+
 <section id="final" class="pantalla">
+
     <h1>¡Felices 15 años, Tania! 🎂</h1>
-    <p class="texto-foto">Que su vida siempre esté llena de alegría, amor y momentos inolvidables. 🌷</p>
+
+    <p class="texto-foto">
+        Que su vida siempre esté llena de alegría,
+        amor y momentos inolvidables. 🌷
+    </p>
 
     <div class="fotos-finales">
+
         <img src="tania-final.jpg" alt="Recuerdo especial">
+
         <img src="tania-final2.jpg" alt="Otro recuerdo especial">
+
         <img src="tania-final3.jpg" alt="Otro recuerdo especial">
+
     </div>
 
     <h1>Tania, la amo muchísimo ❤️</h1>
 
     <div class="mensaje-final">
+
         <p>
-            Quiero que sepa que es alguien muy especial para mí. Le deseo toda la felicidad del mundo. Gracias por existir y por ser usted. 💜
+            Quiero que sepa que es alguien muy especial para mí.
+
+            Le deseo toda la felicidad del mundo.
+
+            Gracias por existir y por ser usted. 💜
+
             <br><br>
-            Con todo mi cariño,<strong>Frankling ❤️</strong>
+
+            Con todo mi cariño,
+
+            <strong>Frankling ❤️</strong>
         </p>
+
     </div>
 
-    <p class="texto-foto" style="margin-top:25px;">🌷 Que todos sus sueños se hagan realidad 🌷</p>
+    <p class="texto-foto" style="margin-top:25px;">
+        🌷 Que todos sus sueños se hagan realidad 🌷
+    </p>
 
     <!-- TEMPORIZADOR -->
+
     <div class="temporizador">
+
         <h2>Una promesa de 100 años ❤️</h2>
-        <p class="subtitulo-reloj">Voy a dejar de amarte en...</p>
+
+        <p class="subtitulo-reloj">
+            Voy a dejar de amarte en...
+        </p>
 
         <div class="reloj-contenedor">
-            <div class="unidad-reloj"><span class="numero" id="anios">100</span><span class="etiqueta">Años</span></div>
-            <div class="unidad-reloj"><span class="numero" id="dias">00</span><span class="etiqueta">Días</span></div>
-            <div class="unidad-reloj"><span class="numero" id="horas">00</span><span class="etiqueta">Horas</span></div>
-            <div class="unidad-reloj"><span class="numero" id="minutos">00</span><span class="etiqueta">Minutos</span></div>
-            <div class="unidad-reloj"><span class="numero" id="segundos">00</span><span class="etiqueta">Segundos</span></div>
+
+            <div class="unidad-reloj">
+                <span class="numero" id="anios">100</span>
+                <span class="etiqueta">Años</span>
+            </div>
+
+            <div class="unidad-reloj">
+                <span class="numero" id="dias">00</span>
+                <span class="etiqueta">Días</span>
+            </div>
+
+            <div class="unidad-reloj">
+                <span class="numero" id="horas">00</span>
+                <span class="etiqueta">Horas</span>
+            </div>
+
+            <div class="unidad-reloj">
+                <span class="numero" id="minutos">00</span>
+                <span class="etiqueta">Minutos</span>
+            </div>
+
+            <div class="unidad-reloj">
+                <span class="numero" id="segundos">00</span>
+                <span class="etiqueta">Segundos</span>
+            </div>
+
         </div>
 
-        <p class="promesa-reloj">Incluso después de estos cien años, te seguiré amando. ❤️</p>
-        <p class="fecha-reloj">11 de diciembre de 2126 ❤️</p>
+        <p class="promesa-reloj">
+            Incluso después de estos cien años,
+            te seguiré amando. ❤️
+        </p>
+
+        <p class="fecha-reloj">
+            11 de diciembre de 2126 ❤️
+        </p>
+
     </div>
 
-    <h2 style="margin-top:35px;color:#f5c5e8;">Una última cosa...</h2>
-    <p class="texto-foto">Hay algo más que quisiera decirle.</p>
-    <button onclick="mostrarSegundoSobre()">Puedes ver esto de aquí si tú quieres 💌</button>
-    <p style="font-size:14px;color:#f4c2e9;margin-top:12px;">Solo te pido que me perdones. ❤️</p>
+    <h2 style="margin-top:35px;color:#f5c5e8;">
+        Una última cosa...
+    </h2>
+
+    <p class="texto-foto">
+        Hay algo más que quisiera decirle.
+    </p>
+
+    <button onclick="mostrarSegundoSobre()">
+        Puedes ver esto de aquí si tú quieres 💌
+    </button>
+
+    <p style="font-size:14px;color:#f4c2e9;margin-top:12px;">
+        Solo te pido que me perdones. ❤️
+    </p>
+
 </section>
 
 <!-- PANTALLA 6 -->
+
 <section id="segundoSobrePantalla" class="pantalla fondo">
+
     <h1>Una última carta para usted 💜</h1>
-    <p class="texto-foto">No tienes que abrirla si no quieres. Solo quería dejarte estas palabras.</p>
+
+    <p class="texto-foto">
+        No tienes que abrirla si no quieres.
+        Solo quería dejarte estas palabras.
+    </p>
+
     <div class="sobre-segundo" id="sobreSegundo"></div>
-    <button onclick="abrirSegundaCarta()">Abrir la última carta ❤️</button>
+
+    <button onclick="abrirSegundaCarta()">
+        Abrir la última carta ❤️
+    </button>
+
 </section>
 
 <!-- PANTALLA 7 -->
+
 <section id="segundaCartaPantalla" class="pantalla fondo">
+
     <div class="carta">
+
         <h2>Perdóname... 💜</h2>
+
         <p>
-            Perdóname por quererte tanto pero me enamoré de la forma más sincera posible.
+            Perdóname por quererte tanto pero me enamoré
+            de la forma más sincera posible.
+
             <br><br>
-            Solo no olvides que te amo y también quiero que seas feliz sin importar que yo no lo sea.
+
+            Solo no olvides que te amo y también quiero
+            que seas feliz sin importar que yo no lo sea.
+
             <br><br>
-            Te amo y gracias por compartir un poco de tu tiempo conmigo. ❤️
+
+            Te amo y gracias por compartir un poco de tu
+            tiempo conmigo. ❤️
         </p>
+
     </div>
-    <button onclick="cambiarPantalla('final')">Volver ❤️</button>
+
+    <button onclick="cambiarPantalla('final')">
+        Volver ❤️
+    </button>
+
 </section>
 
 <script>
+
 /* ==========================================
    ACCESO CON EL NOMBRE Y RETO DEL CORAZÓN
 ========================================== */
+
 const formulario = document.getElementById("formularioAcceso");
 
 formulario.addEventListener("submit", function(event) {
+
     event.preventDefault();
-    const nombre = document.getElementById("nombreTania").value.trim().toLowerCase();
+
+    const nombre = document
+        .getElementById("nombreTania")
+        .value
+        .trim()
+        .toLowerCase();
+
     const error = document.getElementById("mensajeError");
 
     if (nombre === "tania") {
+
         error.textContent = "";
+
         formulario.classList.add("oculto");
-        document.getElementById("retoCorazon").classList.remove("oculto");
+
+        document.getElementById("retoCorazon")
+            .classList.remove("oculto");
+
     } else {
-        error.textContent = "Ese no es el nombre correcto. Inténtelo nuevamente. 💜";
+
+        error.textContent =
+            "Ese no es el nombre correcto. Inténtelo nuevamente. 💜";
+
     }
+
 });
+
+/* ==========================================
+   PROGRESO DEL CORAZÓN
+========================================== */
 
 let progreso = 0;
 let animacionIniciada = false;
 
 function presionarCorazon() {
-    if (progreso >= 100) return;
-    progreso = Math.min(100, progreso + 5);
 
-    document.getElementById("progresoCorazon").style.width = progreso + "%";
-    document.getElementById("porcentajeCorazon").textContent = progreso + "%";
+    if (progreso >= 100) return;
+
+    progreso += 5;
+
+    if (progreso > 100) {
+        progreso = 100;
+    }
+
+    document.getElementById("progresoCorazon").style.width =
+        progreso + "%";
+
+    document.getElementById("porcentajeCorazon").textContent =
+        progreso + "%";
 
     const boton = document.getElementById("botonCorazon");
+
     const mensaje = document.getElementById("mensajeCorazon");
 
     boton.style.transform = "scale(1.2)";
-    setTimeout(() => { boton.style.transform = ""; }, 150);
 
-    if (progreso === 25) mensaje.textContent = "¡Qué bonito! Sigue llenándolo de cariño. 💕";
-    if (progreso === 50) mensaje.textContent = "Ya llevas la mitad. ¡No te rindas! 💜";
-    if (progreso === 75) mensaje.textContent = "¡Ya casi está lleno de amor! 🌷";
+    setTimeout(() => {
+        boton.style.transform = "";
+    }, 150);
+
+    if (progreso === 25) {
+        mensaje.textContent =
+            "¡Qué bonito! Sigue llenándolo de cariño. 💕";
+    }
+
+    if (progreso === 50) {
+        mensaje.textContent =
+            "Ya llevas la mitad. ¡No te rindas! 💜";
+    }
+
+    if (progreso === 75) {
+        mensaje.textContent =
+            "¡Ya casi está lleno de amor! 🌷";
+    }
 
     if (progreso === 100) {
-        mensaje.textContent = "¡Lo lograste! Esta sorpresa es para ti. ❤️";
+
+        mensaje.textContent =
+            "¡Lo lograste! Esta sorpresa es para ti. ❤️";
+
         boton.textContent = "💖";
+
         boton.disabled = true;
 
         setTimeout(() => {
             iniciarAnimacionCumple();
-        }, 900);
+        }, 1000);
+
     }
+
 }
 
 /* ==========================================
-   ANIMACIÓN CINEMATOGRÁFICA (REALISTA)
+   CREAR FLORES DEL ÁRBOL
 ========================================== */
+
+function prepararFlores() {
+
+    const contenedor = document.getElementById("floresArbol");
+
+    contenedor.innerHTML = "";
+
+    const flores = [
+        "🌸",
+        "🌺",
+        "🌷",
+        "💮",
+        "🌼",
+        "💕",
+        "❤️"
+    ];
+
+    for (let i = 0; i < 115; i++) {
+
+        const flor = document.createElement("span");
+
+        flor.className = "flor-animada";
+
+        flor.textContent =
+            flores[Math.floor(Math.random() * flores.length)];
+
+        const x = 10 + Math.random() * 80;
+
+        const y = 5 + Math.random() * 65;
+
+        flor.style.left = x + "%";
+
+        flor.style.top = y + "%";
+
+        flor.style.fontSize =
+            (15 + Math.random() * 17) + "px";
+
+        flor.style.animationDelay =
+            (3 + Math.random() * 5) + "s";
+
+        contenedor.appendChild(flor);
+
+    }
+
+}
+
+/* ==========================================
+   CORAZONES FLOTANTES DE LA ANIMACIÓN
+========================================== */
+
+function crearCorazonesEscena() {
+
+    const contenedor = document.getElementById("corazonesEscena");
+
+    contenedor.innerHTML = "";
+
+    const simbolos = [
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💘"
+    ];
+
+    for (let i = 0; i < 22; i++) {
+
+        const corazon = document.createElement("span");
+
+        corazon.className = "corazon-escena";
+
+        corazon.textContent =
+            simbolos[Math.floor(Math.random() * simbolos.length)];
+
+        corazon.style.left = Math.random() * 100 + "%";
+
+        corazon.style.bottom = "-50px";
+
+        corazon.style.animationDelay =
+            Math.random() * 6 + "s";
+
+        corazon.style.animationDuration =
+            (4 + Math.random() * 4) + "s";
+
+        contenedor.appendChild(corazon);
+
+    }
+
+}
+
+/* ==========================================
+   DESTELLOS DE LA ANIMACIÓN
+========================================== */
+
+function crearDestellos() {
+
+    const contenedor = document.getElementById("destellosEscena");
+
+    contenedor.innerHTML = "";
+
+    for (let i = 0; i < 35; i++) {
+
+        const destello = document.createElement("span");
+
+        destello.className = "brillo-escena";
+
+        destello.style.left = Math.random() * 100 + "%";
+
+        destello.style.top = Math.random() * 100 + "%";
+
+        destello.style.animationDelay =
+            Math.random() * 3 + "s";
+
+        destello.style.animationDuration =
+            (1 + Math.random() * 3) + "s";
+
+        contenedor.appendChild(destello);
+
+    }
+
+}
+
+/* ==========================================
+   INICIAR ANIMACIÓN DE CUMPLEAÑOS
+========================================== */
+
 function iniciarAnimacionCumple() {
+
     if (animacionIniciada) return;
+
     animacionIniciada = true;
 
     const escena = document.getElementById("animacionCumple");
+
     escena.classList.add("activa");
-    activarMusica();
 
-    const bowArea = document.getElementById("cineBowArea");
-    const bowString = document.getElementById("cineBowString");
-    const arrowInBow = document.getElementById("cineArrowInBow");
-    const flyingArrow = document.getElementById("cineFlyingArrow");
-    const targetHeart = document.getElementById("cineTargetHeart");
-    const explosion = document.getElementById("cineExplosion");
-    const scene1 = document.getElementById("cineScene1");
-    const scene2 = document.getElementById("cineScene2");
-    const scene3 = document.getElementById("cineScene3");
-    const treeMsg = document.getElementById("cineTreeMsg");
+    prepararFlores();
 
-    let isDragging = false;
-    let startX = 0;
-    let arrowFired = false;
-    const maxPull = 45;
+    crearCorazonesEscena();
 
-    function startDrag(e) {
-        if (arrowFired) return;
-        isDragging = true;
-        const evt = e.touches ? e.touches[0] : e;
-        startX = evt.clientX;
-        if (e.cancelable) e.preventDefault();
-    }
+    crearDestellos();
 
-    function moveDrag(e) {
-        if (!isDragging || arrowFired) return;
-        const evt = e.touches ? e.touches[0] : e;
-        const dx = startX - evt.clientX;
-        const pull = Math.min(maxPull, Math.max(0, dx));
+    /*
+       La animación dura 12 segundos.
+       Después desaparece y muestra la página original.
+    */
 
-        bowString.setAttribute("points", `22,12 ${28 - pull},50 22,88`);
-        arrowInBow.setAttribute("transform", `translate(${-pull}, 0)`);
-        if (e.cancelable) e.preventDefault();
-    }
+    setTimeout(() => {
 
-    function releaseDrag() {
-        if (!isDragging || arrowFired) return;
-        isDragging = false;
-        arrowFired = true;
-        fireArrow();
-    }
+        escena.style.transition = "opacity 1.5s ease";
 
-    bowArea.addEventListener("mousedown", startDrag);
-    bowArea.addEventListener("touchstart", startDrag, { passive: false });
-    window.addEventListener("mousemove", moveDrag);
-    window.addEventListener("touchmove", moveDrag, { passive: false });
-    window.addEventListener("mouseup", releaseDrag);
-    window.addEventListener("touchend", releaseDrag);
-
-    function createParticle() {
-        const rect = flyingArrow.getBoundingClientRect();
-        const p = document.createElement("div");
-        p.className = "cine-particle";
-        p.style.left = rect.left + "px";
-        p.style.top = (rect.top + 1) + "px";
-        const size = (Math.random() * 3 + 1.5) + "px";
-        p.style.width = size;
-        p.style.height = size;
-        document.body.appendChild(p);
-
-        p.animate([
-            { transform: "translate(0,0) scale(1)", opacity: 1 },
-            { transform: `translate(${-25 - Math.random()*20}px, ${Math.random()*20 - 10}px) scale(0)`, opacity: 0 }
-        ], { duration: 600, easing: "ease-out" });
-
-        setTimeout(() => p.remove(), 600);
-    }
-
-    function fireArrow() {
-        bowString.setAttribute("points", "22,12 28,50 22,88");
-        arrowInBow.style.opacity = "0";
-
-        const bowRect = bowArea.getBoundingClientRect();
-        const heartRect = targetHeart.getBoundingClientRect();
-
-        const sx = bowRect.left + 65;
-        const sy = bowRect.top + 65;
-        const ex = heartRect.left + 55;
-        const ey = heartRect.top + 55;
-
-        const angle = Math.atan2(ey - sy, ex - sx) * 180 / Math.PI;
-
-        flyingArrow.style.display = "block";
-        flyingArrow.style.left = sx + "px";
-        flyingArrow.style.top = sy + "px";
-        flyingArrow.style.transform = `rotate(${angle}deg)`;
-        flyingArrow.style.width = "0px";
-
-        const duration = 450;
-        const startTime = performance.now();
-        const trailInterval = setInterval(createParticle, 15);
-
-        function animateFlight(now) {
-            const progress = Math.min(1, (now - startTime) / duration);
-            flyingArrow.style.left = (sx + (ex - sx) * progress) + "px";
-            flyingArrow.style.top = (sy + (ey - sy) * progress) + "px";
-            flyingArrow.style.width = (60 * progress) + "px";
-
-            if (progress < 1) {
-                requestAnimationFrame(animateFlight);
-            } else {
-                clearInterval(trailInterval);
-                onArrowHit();
-            }
-        }
-        requestAnimationFrame(animateFlight);
-    }
-
-    function onArrowHit() {
-        flyingArrow.style.display = "none";
-        targetHeart.style.transition = "all 0.4s ease";
-        targetHeart.style.transform = "scale(2.4)";
-        targetHeart.style.opacity = "0";
-        explosion.classList.add("boom");
+        escena.style.opacity = "0";
 
         setTimeout(() => {
-            scene1.classList.remove("active");
-            scene2.classList.add("active");
-        }, 500);
 
-        setTimeout(() => {
-            scene2.classList.remove("active");
-            scene3.classList.add("active");
-            startRealisticTreeCanvas();
-        }, 3200);
-    }
+            escena.classList.remove("activa");
 
-    /* Árbol realista orgánico con flores/pétalos suaves */
-    function startRealisticTreeCanvas() {
-        const canvas = document.getElementById("cineTreeCanvas");
-        const ctx = canvas.getContext("2d");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+            escena.style.display = "none";
 
-        const baseX = canvas.width * 0.58;
-        const baseY = canvas.height * 0.92;
-        const scale = Math.min(canvas.width, canvas.height) / 600;
+            escena.style.opacity = "";
 
-        const branches = [];
-        const blossoms = [];
+            escena.style.transition = "";
 
-        function generateBranch(x, y, angle, length, width, depth) {
-            const endX = x + Math.cos(angle) * length;
-            const endY = y + Math.sin(angle) * length;
-            branches.push({ x, y, endX, endY, width, depth, progress: 0 });
+            const acceso = document.getElementById("acceso");
 
-            if (depth > 0) {
-                generateBranch(endX, endY, angle - 0.32 + (Math.random() * 0.18), length * 0.75, width * 0.65, depth - 1);
-                generateBranch(endX, endY, angle + 0.30 + (Math.random() * 0.18), length * 0.75, width * 0.65, depth - 1);
-            }
-        }
+            acceso.style.transition = "opacity 1.5s ease";
 
-        generateBranch(baseX, baseY, -Math.PI / 2, 120 * scale, 18 * scale, 6);
-
-        // Generar pétalos suaves alrededor de la copa simulando un árbol florecido natural
-        const petalColors = ["#ff70a6", "#ff97b7", "#ffccd5", "#fff0f3", "#d4af37", "#b31155"];
-        const treeCenterX = baseX;
-        const treeCenterY = baseY - 260 * scale;
-
-        for (let i = 0; i < 500; i++) {
-            const u = Math.random();
-            const theta = Math.random() * Math.PI * 2;
-            const r = Math.sqrt(u) * 140 * scale;
-            
-            blossoms.push({
-                x: treeCenterX + Math.cos(theta) * r * 1.3,
-                y: treeCenterY + Math.sin(theta) * r * 0.9,
-                size: (2.5 + Math.random() * 4.5) * scale,
-                color: petalColors[Math.floor(Math.random() * petalColors.length)],
-                alpha: 0,
-                delay: Math.random() * 70
-            });
-        }
-
-        let frame = 0;
-        let running = true;
-
-        function animateTree() {
-            if (!running) return;
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            frame++;
-
-            // Dibujar ramas con textura de madera natural (tonos marrones y vino oscuro)
-            branches.forEach(b => {
-                const startFrame = (6 - b.depth) * 12;
-                if (frame > startFrame) {
-                    b.progress = Math.min(1, b.progress + 0.055);
-                }
-                if (b.progress > 0) {
-                    ctx.beginPath();
-                    ctx.moveTo(b.x, b.y);
-                    ctx.lineTo(
-                        b.x + (b.endX - b.x) * b.progress,
-                        b.y + (b.endY - b.y) * b.progress
-                    );
-                    ctx.strokeStyle = "#402232";
-                    ctx.lineWidth = b.width;
-                    ctx.lineCap = "round";
-                    ctx.stroke();
-                }
-            });
-
-            // Florecer pétalos delicados
-            if (frame > 50) {
-                blossoms.forEach(b => {
-                    if (frame - 50 > b.delay) {
-                        b.alpha = Math.min(0.85, b.alpha + 0.03);
-                        if (b.alpha > 0) {
-                            ctx.save();
-                            ctx.globalAlpha = b.alpha;
-                            ctx.fillStyle = b.color;
-                            ctx.beginPath();
-                            ctx.arc(b.x, b.y, b.size, 0, Math.PI * 2);
-                            ctx.fill();
-                            ctx.restore();
-                        }
-                    }
-                });
-            }
-
-            if (frame === 80) {
-                treeMsg.classList.add("visible");
-            }
-
-            requestAnimationFrame(animateTree);
-        }
-
-        animateTree();
-
-        // Transición de salida hacia la página principal después de apreciar el árbol
-        setTimeout(() => {
-            escena.style.transition = "opacity 1.5s ease";
-            escena.style.opacity = "0";
+            acceso.style.opacity = "0";
 
             setTimeout(() => {
-                running = false;
-                escena.classList.remove("activa");
-                escena.style.display = "none";
 
-                const acceso = document.getElementById("acceso");
-                acceso.style.transition = "opacity 1.2s ease";
-                acceso.style.opacity = "0";
+                acceso.classList.add("oculto");
 
-                setTimeout(() => {
-                    acceso.classList.add("oculto");
-                }, 1200);
+                acceso.style.opacity = "";
+
+                acceso.style.transition = "";
+
+                activarMusica();
+
             }, 1500);
-        }, 8000);
-    }
+
+        }, 1500);
+
+    }, 12000);
+
 }
 
 /* ==========================================
-   MÚSICA Y CONTROLES
+   MÚSICA
 ========================================== */
+
 const musica = document.getElementById("musica");
+
 const botonMusica = document.getElementById("botonMusica");
+
 musica.volume = 0.7;
 
 function activarMusica() {
+
     musica.play().then(() => {
+
         botonMusica.textContent = "⏸ Pausar";
+
     }).catch(() => {
+
         botonMusica.textContent = "🎵 Reproducir";
+
     });
+
 }
 
 function alternarMusica() {
+
     if (musica.paused) {
+
         activarMusica();
+
     } else {
+
         musica.pause();
+
         botonMusica.textContent = "🎵 Reproducir";
+
     }
+
 }
 
 function cambiarVolumen(valor) {
+
     musica.volume = Number(valor);
+
 }
 
 /* ==========================================
-   NAVEGACIÓN DE PANTALLAS
+   CAMBIO DE PANTALLAS
 ========================================== */
+
 function cambiarPantalla(id) {
+
     document.querySelectorAll(".pantalla").forEach(p => {
+
         p.classList.remove("activa");
+
     });
 
     const pantalla = document.getElementById(id);
+
     if (!pantalla) return;
 
     pantalla.classList.add("activa");
-    window.scrollTo({ top: 0, behavior: "instant" });
+
+    window.scrollTo({
+        top: 0,
+        behavior: "instant"
+    });
+
 }
 
+/* ==========================================
+   PRIMER SOBRE
+========================================== */
+
 function abrirSorpresa() {
+
     cambiarPantalla("sobrePantalla");
+
     activarMusica();
+
 }
 
 function abrirCarta() {
+
     document.getElementById("sobre").classList.add("abierto");
-    setTimeout(() => { cambiarPantalla("cartaPantalla"); }, 1000);
+
+    setTimeout(() => {
+
+        cambiarPantalla("cartaPantalla");
+
+    }, 1000);
+
 }
 
-function mostrarFoto() { cambiarPantalla("fotoPantalla"); }
-function mostrarFinal() { cambiarPantalla("final"); }
-function mostrarSegundoSobre() { cambiarPantalla("segundoSobrePantalla"); }
+/* ==========================================
+   FOTOGRAFÍAS
+========================================== */
+
+function mostrarFoto() {
+
+    cambiarPantalla("fotoPantalla");
+
+}
+
+function mostrarFinal() {
+
+    cambiarPantalla("final");
+
+}
+
+/* ==========================================
+   SEGUNDO SOBRE
+========================================== */
+
+function mostrarSegundoSobre() {
+
+    cambiarPantalla("segundoSobrePantalla");
+
+}
 
 function abrirSegundaCarta() {
+
     document.getElementById("sobreSegundo").classList.add("abierto");
-    setTimeout(() => { cambiarPantalla("segundaCartaPantalla"); }, 1000);
+
+    setTimeout(() => {
+
+        cambiarPantalla("segundaCartaPantalla");
+
+    }, 1000);
+
 }
 
 /* ==========================================
    CONTADOR DE 100 AÑOS
 ========================================== */
+
 const fechaFinal = new Date(2126, 11, 11, 0, 0, 0);
 
 function actualizarReloj() {
+
     const ahora = new Date();
+
     const diferencia = fechaFinal.getTime() - ahora.getTime();
 
     if (diferencia <= 0) {
+
         document.querySelector(".reloj-contenedor").innerHTML =
             "<p style='grid-column:1/-1;color:#f5c5e8;'>El tiempo se ha terminado ❤️</p>";
+
         return;
+
     }
 
-    let anios = fechaFinal.getFullYear() - ahora.getFullYear();
-    let aniversario = new Date(ahora);
-    aniversario.setFullYear(ahora.getFullYear() + anios);
+    let anios =
+        fechaFinal.getFullYear() - ahora.getFullYear();
 
-    if (aniversario > fechaFinal) anios--;
+    let aniversario = new Date(ahora);
+
+    aniversario.setFullYear(
+        ahora.getFullYear() + anios
+    );
+
+    if (aniversario > fechaFinal) {
+        anios--;
+    }
 
     const fechaTemporal = new Date(ahora);
-    fechaTemporal.setFullYear(ahora.getFullYear() + anios);
 
-    let restante = fechaFinal.getTime() - fechaTemporal.getTime();
-    const milisegundosDia = 1000 * 60 * 60 * 24;
+    fechaTemporal.setFullYear(
+        ahora.getFullYear() + anios
+    );
 
-    const dias = Math.floor(restante / milisegundosDia);
+    let restante =
+        fechaFinal.getTime() - fechaTemporal.getTime();
+
+    const milisegundosDia =
+        1000 * 60 * 60 * 24;
+
+    const dias =
+        Math.floor(restante / milisegundosDia);
+
     restante %= milisegundosDia;
 
-    const horas = Math.floor(restante / (1000 * 60 * 60));
+    const horas =
+        Math.floor(restante / (1000 * 60 * 60));
+
     restante %= (1000 * 60 * 60);
 
-    const minutos = Math.floor(restante / (1000 * 60));
-    const segundos = Math.floor((restante % (1000 * 60)) / 1000);
+    const minutos =
+        Math.floor(restante / (1000 * 60));
 
-    document.getElementById("anios").textContent = anios;
-    document.getElementById("dias").textContent = String(dias).padStart(2, "0");
-    document.getElementById("horas").textContent = String(horas).padStart(2, "0");
-    document.getElementById("minutos").textContent = String(minutos).padStart(2, "0");
-    document.getElementById("segundos").textContent = String(segundos).padStart(2, "0");
+    const segundos =
+        Math.floor((restante % (1000 * 60)) / 1000);
+
+    document.getElementById("anios").textContent =
+        anios;
+
+    document.getElementById("dias").textContent =
+        String(dias).padStart(2, "0");
+
+    document.getElementById("horas").textContent =
+        String(horas).padStart(2, "0");
+
+    document.getElementById("minutos").textContent =
+        String(minutos).padStart(2, "0");
+
+    document.getElementById("segundos").textContent =
+        String(segundos).padStart(2, "0");
+
 }
 
 actualizarReloj();
+
 setInterval(actualizarReloj, 1000);
 
 /* ==========================================
-   ADORNOS FLOTANTES
+   ADORNOS FLOTANTES DE LA PÁGINA ORIGINAL
 ========================================== */
-const adornos = ["❤️", "💜", "🌷", "✨", "💕", "🌸"];
+
+const adornos = [
+    "❤️",
+    "💜",
+    "🌷",
+    "✨",
+    "💕",
+    "🌸"
+];
 
 function crearParticula() {
-    if (document.querySelectorAll(".decoracion").length > 25) return;
+
+    if (document.querySelectorAll(".decoracion").length > 25) {
+        return;
+    }
 
     const elemento = document.createElement("div");
+
     elemento.className = "decoracion";
-    elemento.textContent = adornos[Math.floor(Math.random() * adornos.length)];
-    elemento.style.left = Math.random() * 100 + "vw";
-    elemento.style.animationDuration = (5 + Math.random() * 6) + "s";
-    elemento.style.fontSize = (18 + Math.random() * 18) + "px";
+
+    elemento.textContent =
+        adornos[Math.floor(Math.random() * adornos.length)];
+
+    elemento.style.left =
+        Math.random() * 100 + "vw";
+
+    elemento.style.animationDuration =
+        (5 + Math.random() * 6) + "s";
+
+    elemento.style.fontSize =
+        (18 + Math.random() * 18) + "px";
 
     document.body.appendChild(elemento);
 
-    setTimeout(() => { elemento.remove(); }, 11000);
+    setTimeout(() => {
+
+        elemento.remove();
+
+    }, 11000);
+
 }
 
 setInterval(crearParticula, 600);
+
 </script>
 
 </body>
 </html>
-
