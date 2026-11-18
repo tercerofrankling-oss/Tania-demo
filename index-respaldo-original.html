@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Tania ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, serif;
+    color: #f8d9f0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: #1b102b;
+}
+
+.pantalla {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+    padding: 35px 18px 145px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+}
+
+.pantalla.activa {
+    display: flex;
+    animation: aparecer 1s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    color: #f7c7ed;
+    text-shadow: 0 0 18px #d879c8;
+    font-size: clamp(32px, 8vw, 50px);
+    margin-bottom: 18px;
+}
+
+h2 {
+    color: #a64f91;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #f8d8ef;
+    line-height: 1.7;
+}
+
+button {
+    border: 1px solid #f3b6e5;
+    border-radius: 30px;
+    padding: 14px 23px;
+    margin-top: 22px;
+    font-size: 16px;
+    color: #fff0fa;
+    background: linear-gradient(135deg, #9b4d91, #c66aa8);
+    box-shadow: 0 5px 20px #0008;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px #e7a5e6;
+}
+
+button:active {
+    transform: scale(.96);
+}
+
+/* FONDO */
+
+.fondo {
+    background:
+        linear-gradient(135deg, #160b31bb, #5b2675aa, #120b26bb),
+        url("tania-fondo.jpg") center center / cover no-repeat;
+}
+
+/* PANTALLA DE ACCESO */
+
+#acceso {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    min-height: 100vh;
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        linear-gradient(135deg, #10091fee, #48205cee, #10091fee),
+        url("tania-fondo.jpg") center / cover no-repeat;
+}
+
+.acceso-contenido {
+    width: 100%;
+    max-width: 390px;
+    padding: 35px 24px;
+    border: 1px solid #d58ac2;
+    border-radius: 25px;
+    background: #1b102bee;
+    box-shadow: 0 0 40px #d879c866;
+    animation: aparecer 1.2s ease;
+}
+
+.acceso-corazon {
+    font-size: 65px;
+    margin-bottom: 15px;
+    animation: latido 2s infinite;
+}
+
+.acceso-contenido h1 {
+    font-size: 34px;
+}
+
+.acceso-contenido p {
+    font-size: 17px;
+    color: #f5c5e8;
+}
+
+#nombreTania {
+    width: 100%;
+    padding: 15px;
+    margin-top: 25px;
+    border-radius: 15px;
+    border: 1px solid #d58ac2;
+    outline: none;
+    background: #2c1a3e;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    font-family: Georgia, serif;
+}
+
+#nombreTania::placeholder {
+    color: #c69abb;
+}
+
+#mensajeError {
+    color: #ff9dbb;
+    font-size: 14px;
+    margin-top: 15px;
+    min-height: 22px;
+}
+
+#acceso button {
+    width: 100%;
+}
+
+.oculto {
+    display: none !important;
+}
+
+@keyframes latido {
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+/* RETO DEL CORAZÓN */
+
+#retoCorazon {
+    animation: aparecer 1s ease;
+}
+
+#retoCorazon h2 {
+    color: #f5c5e8;
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+#retoCorazon p {
+    color: #eac5e5;
+    font-size: 16px;
+}
+
+.corazon-interactivo {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 25px auto 15px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    font-size: 100px;
+    cursor: pointer;
+    animation: latidoCorazon 1.1s infinite;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.corazon-interactivo:hover {
+    transform: scale(1.12);
+    box-shadow: none;
+}
+
+.corazon-interactivo:active {
+    transform: scale(.85);
+}
+
+@keyframes latidoCorazon {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+.barra-progreso {
+    width: 100%;
+    height: 17px;
+    margin-top: 15px;
+    background: #39213f;
+    border: 1px solid #bd76b3;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progreso-corazon {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #9b4d91, #f18acb, #ffc3e9);
+    border-radius: 20px;
+    transition: width .25s ease;
+    box-shadow: 0 0 15px #ed9bd7;
+}
+
+.porcentaje-corazon {
+    display: block;
+    margin-top: 12px;
+    color: #ffd6f1;
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 0 0 12px #e99bd5;
+}
+
+.mensaje-corazon {
+    margin-top: 15px;
+    min-height: 25px;
+    color: #f5c5e8;
+    font-size: 15px;
+}
+
+/* INTRODUCCIÓN */
+
+.intro {
+    font-size: 20px;
+    max-width: 360px;
+    color: #f5c5e8;
+}
+
+/* SOBRE */
+
+.sobre {
+    width: 230px;
+    height: 150px;
+    margin-top: 35px;
+    position: relative;
+    background: #e9b8d9;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px #0008;
+    perspective: 800px;
+}
+
+.sobre::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 115px solid transparent;
+    border-right: 115px solid transparent;
+    border-top: 85px solid #c084b7;
+    transform-origin: top;
+    transition: transform 1s;
+    z-index: 3;
+}
+
+.sobre.abierto::before {
+    transform: rotateX(180deg);
+}
+
+.sobre::after {
+    content: "❤️";
+    position: absolute;
+    top: 55px;
+    left: 95px;
+    font-size: 38px;
+    z-index: 4;
+}
+
+/* CARTAS */
+
+.carta {
+    max-width: 450px;
+    width: 100%;
+    padding: 30px 23px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #fff0f8, #f3d7ed);
+    color: #70416d;
+    box-shadow: 0 10px 40px #0008;
+    line-height: 1.8;
+    font-size: 18px;
+    border: 2px solid #e6a8d6;
+}
+
+.carta p {
+    color: #70416d;
+}
+
+.carta h2 {
+    color: #a64f91;
+}
+
+/* FOTOGRAFÍA PRINCIPAL GRANDE */
+
+.foto {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    max-height: 75vh;
+    height: auto;
+    object-fit: contain;
+    border: 5px solid #f8d8ef;
+    border-radius: 20px;
+    box-shadow: 0 0 35px #e7a5e699;
+    margin: 25px auto;
+}
+
+.texto-foto {
+    font-size: 21px;
+    max-width: 360px;
+    color: #f6c9eb;
+}
+
+/* FINAL */
+
+#final {
+    background:
+        linear-gradient(180deg, #170b30bb, #4b2455bb, #170b30ee),
+        url("tania-fondo.jpg") center / cover no-repeat;
+}
+
+/* FOTOGRAFÍAS FINALES GRANDES */
+
+.fotos-finales {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin: 25px 0;
+    width: 100%;
+}
+
+.fotos-finales img {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    max-height: 75vh;
+    object-fit: contain;
+    border: 5px solid #f8d8ef;
+    border-radius: 20px;
+    box-shadow: 0 0 25px #f0abfc99;
+    transition: .4s;
+}
+
+.fotos-finales img:hover {
+    transform: scale(1.02);
+}
+
+/* MENSAJE FINAL */
+
+.mensaje-final {
+    max-width: 400px;
+    width: 100%;
+    line-height: 1.8;
+    font-size: 18px;
+    margin-top: 15px;
+    background: #f7dff0ee;
+    color: #70416d;
+    padding: 22px;
+    border-radius: 18px;
+}
+
+.mensaje-final p {
+    color: #70416d;
+}
+
+/* SEGUNDO SOBRE */
+
+.sobre-segundo {
+    width: 250px;
+    height: 155px;
+    margin: 30px auto;
+    position: relative;
+    background: #edc0dc;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px #0008;
+    perspective: 800px;
+}
+
+.sobre-segundo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    border-top: 90px solid #c77fb4;
+    transform-origin: top;
+    transition: transform 1s;
+    z-index: 3;
+}
+
+.sobre-segundo.abierto::before {
+    transform: rotateX(180deg);
+}
+
+.sobre-segundo::after {
+    content: "💌";
+    position: absolute;
+    top: 55px;
+    left: 105px;
+    font-size: 40px;
+    z-index: 4;
+}
+
+/* TEMPORIZADOR MEJORADO */
+
+.temporizador {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: linear-gradient(
+        145deg,
+        #160d29f5,
+        #29143bf5,
+        #160d29f5
+    );
+    color: #f8d9f0;
+    padding: 28px 18px;
+    border-radius: 24px;
+    max-width: 440px;
+    width: 100%;
+    margin-top: 30px;
+    border: 1px solid #d58ac2;
+    box-shadow:
+        0 0 15px #d879c855,
+        0 0 35px #9b4d9144,
+        inset 0 0 20px #ffffff08;
+    animation: brilloReloj 4s ease-in-out infinite;
+}
+
+.temporizador::before {
+    content: "♥";
+    position: absolute;
+    top: 8px;
+    right: 17px;
+    font-size: 30px;
+    color: #e99bd5;
+    opacity: .45;
+    z-index: -1;
+    animation: latido 2s infinite;
+}
+
+.temporizador::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: #b45aa5;
+    filter: blur(90px);
+    opacity: .18;
+    bottom: -100px;
+    left: -60px;
+    z-index: -1;
+}
+
+@keyframes brilloReloj {
+    0%, 100% {
+        box-shadow:
+            0 0 15px #d879c855,
+            0 0 35px #9b4d9144,
+            inset 0 0 20px #ffffff08;
+    }
+    50% {
+        box-shadow:
+            0 0 25px #e99bd588,
+            0 0 50px #9b4d9188,
+            inset 0 0 25px #ffffff12;
+    }
+}
+
+.temporizador h2 {
+    color: #f5c5e8;
+    font-size: 23px;
+    margin-bottom: 12px;
+    text-shadow: 0 0 12px #d879c8;
+}
+
+.subtitulo-reloj {
+    color: #d9b4df;
+    font-size: 15px;
+    margin-bottom: 22px;
+}
+
+.reloj-contenedor {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    width: 100%;
+}
+
+.unidad-reloj {
+    padding: 15px 5px;
+    background: linear-gradient(145deg, #382047, #21132f);
+    border: 1px solid #9b4d91;
+    border-radius: 15px;
+    box-shadow:
+        inset 0 0 12px #d879c822,
+        0 4px 12px #0005;
+    transition: .3s;
+}
+
+.unidad-reloj:hover {
+    transform: translateY(-4px);
+    border-color: #f5c5e8;
+    box-shadow: 0 0 18px #d879c877;
+}
+
+.unidad-reloj .numero {
+    display: block;
+    color: #fff0fa;
+    font-size: clamp(27px, 7vw, 38px);
+    font-weight: bold;
+    text-shadow: 0 0 12px #e99bd5;
+    line-height: 1.2;
+}
+
+.unidad-reloj .etiqueta {
+    display: block;
+    color: #dca8d5;
+    font-size: 13px;
+    margin-top: 7px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.unidad-reloj:last-child {
+    grid-column: 1 / -1;
+    max-width: 190px;
+    width: 100%;
+    justify-self: center;
+}
+
+.promesa-reloj {
+    color: #f5c5e8;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-top: 23px;
+    text-shadow: 0 0 10px #d879c866;
+}
+
+.fecha-reloj {
+    color: #c99acb;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+/* MÚSICA */
+
+.controles-musica {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #241333ee;
+    border-top: 1px solid #d58ac2;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    z-index: 30;
+    flex-wrap: wrap;
+    backdrop-filter: blur(10px);
+}
+
+.controles-musica button {
+    margin: 0;
+    padding: 10px 17px;
+    font-size: 14px;
+}
+
+.controles-musica label {
+    color: #f5c5e8;
+    font-size: 14px;
+}
+
+#volumen {
+    width: 110px;
+    accent-color: #e99bd5;
+}
+
+/* ADORNOS */
+
+.decoracion {
+    position: fixed;
+    bottom: -40px;
+    font-size: 25px;
+    pointer-events: none;
+    animation: flotar 8s linear forwards;
+    z-index: 5;
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* CELULARES */
+
+@media (max-width: 480px) {
+    .pantalla {
+        padding: 30px 15px 145px;
+    }
+
+    .intro {
+        font-size: 18px;
+    }
+
+    .texto-foto {
+        font-size: 19px;
+    }
+
+    .carta {
+        padding: 25px 18px;
+        font-size: 17px;
+    }
+
+    .foto {
+        max-height: 70vh;
+    }
+
+    .fotos-finales img {
+        max-height: 70vh;
+    }
+
+    .temporizador {
+        padding: 22px 14px;
+    }
+
+    .temporizador h2 {
+        font-size: 21px;
+    }
+
+    .reloj-contenedor {
+        gap: 9px;
+    }
+
+    .unidad-reloj {
+        padding: 13px 4px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PANTALLA DE ACCESO -->
+
+<div id="acceso">
+
+    <div class="acceso-contenido">
+
+        <div class="acceso-corazon">💜</div>
+
+        <h1>Una sorpresa para usted</h1>
+
+        <p>
+            Esta página guarda algo muy especial.
+            Pero antes de descubrirlo...
+        </p>
+
+        <p style="margin-top:15px;">
+            ¿Cuál es su nombre? ❤️
+        </p>
+
+        <form id="formularioAcceso">
+
+            <input
+                type="text"
+                id="nombreTania"
+                placeholder="Escriba su nombre..."
+                autocomplete="off"
+                required
+            >
+
+            <button type="submit">
+                Descubrir mi sorpresa 💌
+            </button>
+
+        </form>
+
+        <p id="mensajeError"></p>
+
+        <!-- RETO DEL CORAZÓN -->
+
+        <div id="retoCorazon" class="oculto">
+
+            <h2>¡Muy bien, Tania! ❤️</h2>
+
+            <p>
+                Ahora quiero pedirte algo...
+                <br>
+                Presiona el corazón hasta llenarlo de amor.
+            </p>
+
+            <button
+                type="button"
+                class="corazon-interactivo"
+                id="botonCorazon"
+                onclick="presionarCorazon()"
+                aria-label="Presionar corazón"
+            >
+                ❤️
+            </button>
+
+            <div class="barra-progreso">
+                <div
+                    class="progreso-corazon"
+                    id="progresoCorazon"
+                ></div>
+            </div>
+
+            <span
+                class="porcentaje-corazon"
+                id="porcentajeCorazon"
+            >
+                0%
+            </span>
+
+            <p class="mensaje-corazon" id="mensajeCorazon">
+                Cada toque representa un poquito de cariño. 💜
+            </p>
+
+        </div>
+
+        <p style="font-size:13px;margin-top:15px;">
+            Hecho con cariño ❤️
+        </p>
+
+    </div>
+
+</div>
+
+<!-- MÚSICA -->
+
+<audio id="musica" src="musica.m4a" loop preload="auto"></audio>
+
+<div class="controles-musica">
+
+    <button onclick="alternarMusica()" id="botonMusica">
+        🎵 Reproducir
+    </button>
+
+    <label for="volumen">🔊 Volumen</label>
+
+    <input
+        type="range"
+        id="volumen"
+        min="0"
+        max="1"
+        step="0.01"
+        value="0.7"
+        oninput="cambiarVolumen(this.value)"
+    >
+
+</div>
+
+<!-- PANTALLA 1 -->
+
+<section id="inicio" class="pantalla activa fondo">
+
+    <h1>Para Tania ❤️</h1>
+
+    <p class="intro">
+        Hay personas que hacen que los días sean más bonitos...
+        y usted es una de ellas. 💜
+    </p>
+
+    <h2 style="margin-top:25px;color:#f4c2e9;">
+        Hoy cumple 15 años 🎂
+    </h2>
+
+    <p class="intro">
+        Quiero que este día esté lleno de sonrisas,
+        alegría y momentos inolvidables.
+    </p>
+
+    <button onclick="abrirSorpresa()">
+        Abrir sorpresa 💌
+    </button>
+
+</section>
+
+<!-- PANTALLA 2 -->
+
+<section id="sobrePantalla" class="pantalla fondo">
+
+    <h1>Una carta para usted 💌</h1>
+
+    <div class="sobre" id="sobre"></div>
+
+    <p class="texto-foto">
+        Toque para descubrir su sorpresa 🌷
+    </p>
+
+    <button onclick="abrirCarta()">
+        Abrir mi carta
+    </button>
+
+</section>
+
+<!-- PANTALLA 3 -->
+
+<section id="cartaPantalla" class="pantalla fondo">
+
+    <div class="carta">
+
+        <h2>Querida Tania ❤️</h2>
+
+        <p>
+            Hoy quiero dedicarle unas palabras especiales.
+
+            Así como los tulipanes llenan de belleza un jardín,
+            usted tiene una forma especial de hacer más bonitos
+            los momentos.
+
+            <br><br>
+
+            Que cada amanecer le traiga nuevas ilusiones y que
+            cada atardecer le recuerde lo bonito que es vivir.
+
+            <br><br>
+
+            Nunca deje de sonreír ni de perseguir sus sueños.
+            Se merece cosas maravillosas.
+
+            <br><br>
+
+            ¡Felices 15 años! 🎂🌷
+
+            <br><br>
+
+            Con cariño,
+
+            <br>
+
+            <strong>Frankling ❤️</strong>
+        </p>
+
+    </div>
+
+    <button onclick="mostrarFoto()">
+        Continuar 🌷
+    </button>
+
+</section>
+
+<!-- PANTALLA 4 -->
+
+<section id="fotoPantalla" class="pantalla fondo">
+
+    <h1>Un recuerdo especial ❤️</h1>
+
+    <img
+        src="tania.jpg"
+        class="foto"
+        alt="Fotografía especial"
+    >
+
+    <p class="texto-foto">
+        Hay recuerdos que merecen guardarse para siempre. 💜
+    </p>
+
+    <button onclick="mostrarFinal()">
+        Continuar ✨
+    </button>
+
+</section>
+
+<!-- PANTALLA 5 -->
+
+<section id="final" class="pantalla">
+
+    <h1>¡Felices 15 años, Tania! 🎂</h1>
+
+    <p class="texto-foto">
+        Que su vida siempre esté llena de alegría,
+        amor y momentos inolvidables. 🌷
+    </p>
+
+    <div class="fotos-finales">
+
+        <img src="tania-final.jpg" alt="Recuerdo especial">
+
+        <img src="tania-final2.jpg" alt="Otro recuerdo especial">
+
+        <img src="tania-final3.jpg" alt="Otro recuerdo especial">
+
+    </div>
+
+    <h1>Tania, la amo muchísimo ❤️</h1>
+
+    <div class="mensaje-final">
+
+        <p>
+            Quiero que sepa que es alguien muy especial para mí.
+
+            Le deseo toda la felicidad del mundo.
+
+            Gracias por existir y por ser usted. 💜
+
+            <br><br>
+
+            Con todo mi cariño,
+
+            <strong>Frankling ❤️</strong>
+        </p>
+
+    </div>
+
+    <p class="texto-foto" style="margin-top:25px;">
+        🌷 Que todos sus sueños se hagan realidad 🌷
+    </p>
+
+    <!-- TEMPORIZADOR MEJORADO -->
+
+    <div class="temporizador">
+
+        <h2>Una promesa de 100 años ❤️</h2>
+
+        <p class="subtitulo-reloj">
+            Voy a dejar de amarte en...
+        </p>
+
+        <div class="reloj-contenedor">
+
+            <div class="unidad-reloj">
+                <span class="numero" id="anios">100</span>
+                <span class="etiqueta">Años</span>
+            </div>
+
+            <div class="unidad-reloj">
+                <span class="numero" id="dias">00</span>
+                <span class="etiqueta">Días</span>
+            </div>
+
+            <div class="unidad-reloj">
+                <span class="numero" id="horas">00</span>
+                <span class="etiqueta">Horas</span>
+            </div>
+
+            <div class="unidad-reloj">
+                <span class="numero" id="minutos">00</span>
+                <span class="etiqueta">Minutos</span>
+            </div>
+
+            <div class="unidad-reloj">
+                <span class="numero" id="segundos">00</span>
+                <span class="etiqueta">Segundos</span>
+            </div>
+
+        </div>
+
+        <p class="promesa-reloj">
+            Incluso después de estos cien años,
+            te seguiré amando. ❤️
+        </p>
+
+        <p class="fecha-reloj">
+            11 de diciembre de 2126 ❤️
+        </p>
+
+    </div>
+
+    <h2 style="margin-top:35px;color:#f5c5e8;">
+        Una última cosa...
+    </h2>
+
+    <p class="texto-foto">
+        Hay algo más que quisiera decirle.
+    </p>
+
+    <button onclick="mostrarSegundoSobre()">
+        Puedes ver esto de aquí si tú quieres 💌
+    </button>
+
+    <p style="font-size:14px;color:#f4c2e9;margin-top:12px;">
+        Solo te pido que me perdones. ❤️
+    </p>
+
+</section>
+
+<!-- PANTALLA 6 -->
+
+<section id="segundoSobrePantalla" class="pantalla fondo">
+
+    <h1>Una última carta para usted 💜</h1>
+
+    <p class="texto-foto">
+        No tienes que abrirla si no quieres.
+        Solo quería dejarte estas palabras.
+    </p>
+
+    <div class="sobre-segundo" id="sobreSegundo"></div>
+
+    <button onclick="abrirSegundaCarta()">
+        Abrir la última carta ❤️
+    </button>
+
+</section>
+
+<!-- PANTALLA 7 -->
+
+<section id="segundaCartaPantalla" class="pantalla fondo">
+
+    <div class="carta">
+
+        <h2>Perdóname... 💜</h2>
+
+        <p>
+            Perdóname por quererte tanto pero me enamoré
+            de la forma más sincera posible.
+
+            <br><br>
+
+            Solo no olvides que te amo y también quiero
+            que seas feliz sin importar que yo no lo sea.
+
+            <br><br>
+
+            Te amo y gracias por compartir un poco de tu
+            tiempo conmigo. ❤️
+        </p>
+
+    </div>
+
+    <button onclick="cambiarPantalla('final')">
+        Volver ❤️
+    </button>
+
+</section>
+
+<script>
+
+/* ACCESO CON EL NOMBRE Y RETO DEL CORAZÓN */
+
+const formulario = document.getElementById("formularioAcceso");
+
+formulario.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const nombre = document
+        .getElementById("nombreTania")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const error = document.getElementById("mensajeError");
+
+    if (nombre === "tania") {
+
+        error.textContent = "";
+
+        formulario.classList.add("oculto");
+
+        document.getElementById("retoCorazon")
+            .classList.remove("oculto");
+
+    } else {
+
+        error.textContent =
+            "Ese no es el nombre correcto. Inténtelo nuevamente. 💜";
+
+    }
+
+});
+
+/* PROGRESO DEL CORAZÓN */
+
+let progreso = 0;
+
+function presionarCorazon() {
+
+    if (progreso >= 100) return;
+
+    progreso += 5;
+
+    if (progreso > 100) {
+        progreso = 100;
+    }
+
+    document.getElementById("progresoCorazon").style.width =
+        progreso + "%";
+
+    document.getElementById("porcentajeCorazon").textContent =
+        progreso + "%";
+
+    const boton = document.getElementById("botonCorazon");
+
+    const mensaje = document.getElementById("mensajeCorazon");
+
+    /* Efecto de crecimiento */
+
+    boton.style.transform = "scale(1.2)";
+
+    setTimeout(() => {
+        boton.style.transform = "";
+    }, 150);
+
+    if (progreso === 25) {
+        mensaje.textContent = "¡Qué bonito! Sigue llenándolo de cariño. 💕";
+    }
+
+    if (progreso === 50) {
+        mensaje.textContent = "Ya llevas la mitad. ¡No te rindas! 💜";
+    }
+
+    if (progreso === 75) {
+        mensaje.textContent = "¡Ya casi está lleno de amor! 🌷";
+    }
+
+    if (progreso === 100) {
+
+        mensaje.textContent = "¡Lo lograste! Esta sorpresa es para ti. ❤️";
+
+        boton.textContent = "💖";
+
+        boton.disabled = true;
+
+        setTimeout(() => {
+
+            const acceso = document.getElementById("acceso");
+
+            acceso.style.transition = "opacity 1.5s";
+
+            acceso.style.opacity = "0";
+
+            setTimeout(() => {
+
+                acceso.classList.add("oculto");
+
+                activarMusica();
+
+            }, 1500);
+
+        }, 1200);
+
+    }
+
+}
+
+/* MÚSICA */
+
+const musica = document.getElementById("musica");
+
+const botonMusica = document.getElementById("botonMusica");
+
+musica.volume = 0.7;
+
+function activarMusica() {
+
+    musica.play().then(() => {
+
+        botonMusica.textContent = "⏸ Pausar";
+
+    }).catch(() => {
+
+        botonMusica.textContent = "🎵 Reproducir";
+
+    });
+
+}
+
+function alternarMusica() {
+
+    if (musica.paused) {
+
+        activarMusica();
+
+    } else {
+
+        musica.pause();
+
+        botonMusica.textContent = "🎵 Reproducir";
+
+    }
+
+}
+
+function cambiarVolumen(valor) {
+
+    musica.volume = Number(valor);
+
+}
+
+/* CAMBIO DE PANTALLAS */
+
+function cambiarPantalla(id) {
+
+    document.querySelectorAll(".pantalla").forEach(p => {
+
+        p.classList.remove("activa");
+
+    });
+
+    const pantalla = document.getElementById(id);
+
+    if (!pantalla) return;
+
+    pantalla.classList.add("activa");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "instant"
+    });
+
+}
+
+/* PRIMER SOBRE */
+
+function abrirSorpresa() {
+
+    cambiarPantalla("sobrePantalla");
+
+    activarMusica();
+
+}
+
+function abrirCarta() {
+
+    document.getElementById("sobre").classList.add("abierto");
+
+    setTimeout(() => {
+
+        cambiarPantalla("cartaPantalla");
+
+    }, 1000);
+
+}
+
+/* FOTOGRAFÍAS */
+
+function mostrarFoto() {
+
+    cambiarPantalla("fotoPantalla");
+
+}
+
+function mostrarFinal() {
+
+    cambiarPantalla("final");
+
+}
+
+/* SEGUNDO SOBRE */
+
+function mostrarSegundoSobre() {
+
+    cambiarPantalla("segundoSobrePantalla");
+
+}
+
+function abrirSegundaCarta() {
+
+    document.getElementById("sobreSegundo").classList.add("abierto");
+
+    setTimeout(() => {
+
+        cambiarPantalla("segundaCartaPantalla");
+
+    }, 1000);
+
+}
+
+/* CONTADOR MEJORADO */
+
+const fechaFinal = new Date(2126, 11, 11, 0, 0, 0);
+
+function actualizarReloj() {
+
+    const ahora = new Date();
+
+    const diferencia = fechaFinal.getTime() - ahora.getTime();
+
+    if (diferencia <= 0) {
+
+        document.querySelector(".reloj-contenedor").innerHTML =
+            "<p style='grid-column:1/-1;color:#f5c5e8;'>El tiempo se ha terminado ❤️</p>";
+
+        return;
+
+    }
+
+    /* Calcular años completos */
+
+    let anios = fechaFinal.getFullYear() - ahora.getFullYear();
+
+    let aniversario = new Date(ahora);
+
+    aniversario.setFullYear(ahora.getFullYear() + anios);
+
+    if (aniversario > fechaFinal) {
+        anios--;
+    }
+
+    /* Calcular el tiempo restante después de los años */
+
+    const fechaTemporal = new Date(ahora);
+
+    fechaTemporal.setFullYear(ahora.getFullYear() + anios);
+
+    let restante = fechaFinal.getTime() - fechaTemporal.getTime();
+
+    const milisegundosDia = 1000 * 60 * 60 * 24;
+
+    const dias = Math.floor(restante / milisegundosDia);
+
+    restante %= milisegundosDia;
+
+    const horas = Math.floor(restante / (1000 * 60 * 60));
+
+    restante %= (1000 * 60 * 60);
+
+    const minutos = Math.floor(restante / (1000 * 60));
+
+    const segundos = Math.floor((restante % (1000 * 60)) / 1000);
+
+    /* Mostrar cada unidad */
+
+    document.getElementById("anios").textContent = anios;
+
+    document.getElementById("dias").textContent =
+        String(dias).padStart(2, "0");
+
+    document.getElementById("horas").textContent =
+        String(horas).padStart(2, "0");
+
+    document.getElementById("minutos").textContent =
+        String(minutos).padStart(2, "0");
+
+    document.getElementById("segundos").textContent =
+        String(segundos).padStart(2, "0");
+
+}
+
+actualizarReloj();
+
+setInterval(actualizarReloj, 1000);
+
+/* ADORNOS FLOTANTES */
+
+const adornos = [
+    "❤️",
+    "💜",
+    "🌷",
+    "✨",
+    "💕",
+    "🌸"
+];
+
+function crearParticula() {
+
+    if (document.querySelectorAll(".decoracion").length > 25) {
+        return;
+    }
+
+    const elemento = document.createElement("div");
+
+    elemento.className = "decoracion";
+
+    elemento.textContent =
+        adornos[Math.floor(Math.random() * adornos.length)];
+
+    elemento.style.left = Math.random() * 100 + "vw";
+
+    elemento.style.animationDuration =
+        (5 + Math.random() * 6) + "s";
+
+    elemento.style.fontSize =
+        (18 + Math.random() * 18) + "px";
+
+    document.body.appendChild(elemento);
+
+    setTimeout(() => {
+
+        elemento.remove();
+
+    }, 11000);
+
+}
+
+setInterval(crearParticula, 600);
+
+</script>
+
+</body>
+</html>
